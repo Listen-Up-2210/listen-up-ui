@@ -3,14 +3,14 @@ import './Choices.css'
 
 const Choices = ({correctAnswer, wrongAnswers}) => {
 
-  const answers = [...wrongAnswers, correctAnswer]
+  // const answers = [...wrongAnswers, correctAnswer]
 
-  const randomizeAnswers = () => {
+  // const randomizeAnswers = () => {
     
-  }
+  // }
 
   return (
-    <div>
+    <div className="choices-container">
       <button>{correctAnswer}</button>
       <button>{wrongAnswers[0]}</button>
       <button>{wrongAnswers[1]}</button>
