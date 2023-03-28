@@ -6,18 +6,10 @@ function Category() {
 
     return (
         <div className="categories">
-            <Link to='/animals'>
-                <button>Animals</button>
-            </Link>
-            <Link to='/instruments'>
-                <button>Instruments</button>
-            </Link>
-            <Link to='/machines'>
-                <button>Machines</button>
-            </Link>
-            <Link to='/misc'>
-                <button>Miscellaneous</button>
-            </Link>
+            <Link className="category-link" to='/animals'>Animals</Link>
+            <Link className="category-link" to='/instruments'>Instruments</Link>
+            <Link className="category-link" to='/machines'>Machines</Link>
+            <Link className="category-link" to='/misc'>Miscellaneous</Link>
         </div>
     )
 }
