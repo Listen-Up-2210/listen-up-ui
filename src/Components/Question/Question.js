@@ -49,7 +49,7 @@ const Question = () => {
       <div className="game-card-container">
         {gameCards[turn]}
       </div>
-      <button onClick={(e) => handleClick(e)}/>
+      <button onClick={(e) => handleClick(e)}>Next Question</button>
     </>
   )
 }

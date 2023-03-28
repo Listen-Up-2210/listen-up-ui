@@ -3,6 +3,12 @@ import './Choices.css'
 
 const Choices = ({correctAnswer, wrongAnswers}) => {
 
+  const answers = [...wrongAnswers, correctAnswer]
+
+  const randomizeAnswers = () => {
+    
+  }
+
   return (
     <div>
       <button>{correctAnswer}</button>
