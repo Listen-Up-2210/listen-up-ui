@@ -48,7 +48,7 @@ const Question = () => {
   return (
     <>
       <div className="game-card-container">
-        {gameCards}
+        {gameCards[turn]}
       </div>
       <button onClick={(e) => handleClick(e)}/>
     </>
