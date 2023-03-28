@@ -1,17 +1,16 @@
 import React from "react";
 import './Choices.css'
 
-const Choices = () => {
+const Choices = ({correctAnswer, wrongAnswers}) => {
+
   return (
-    <>
-      <p>Choice 1</p>
-      <p>Choice 2</p>
-      <p>Choice 3</p>
-      <p>Choice 4</p>
-    </>
+    <div>
+      <p>{correctAnswer}</p>
+      <p>{wrongAnswers[0]}</p>
+      <p>{wrongAnswers[1]}</p>
+      <p>{wrongAnswers[2]}</p>
+    </div>
   )
 }
-
-
 
 export default Choices
