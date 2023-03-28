@@ -12,12 +12,38 @@ import "./Game.css"
     setName = ''
   }
 
+  setDeck = () => {
+    const categoryQuery = `
+      query {
+        sound_cards(category: input) {
+          id:
+          correct answer:
+          wrong answers:
+        }
+      }
+    `
+    fetch("URL", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        query: query
+      })
+    })
+    .then(res => res.json)
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log(err))
+  }
+
   setScore = () => {
     return score ++
   }
 
-  setName = (input) => {
-    name = input
+  setName = (e) => {
+    name = event.target.value
     return name
   }
 
