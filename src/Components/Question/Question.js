@@ -33,7 +33,6 @@ const Question = () => {
   }
 
   const gameCards = deck.map(question => {
-    console.log('question', question)
     return (
       <>
         <Audio audio={question.audio}/>

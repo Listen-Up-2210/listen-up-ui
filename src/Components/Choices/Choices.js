@@ -5,10 +5,10 @@ const Choices = ({correctAnswer, wrongAnswers}) => {
 
   return (
     <div>
-      <p>{correctAnswer}</p>
-      <p>{wrongAnswers[0]}</p>
-      <p>{wrongAnswers[1]}</p>
-      <p>{wrongAnswers[2]}</p>
+      <button>{correctAnswer}</button>
+      <button>{wrongAnswers[0]}</button>
+      <button>{wrongAnswers[1]}</button>
+      <button>{wrongAnswers[2]}</button>
     </div>
   )
 }
