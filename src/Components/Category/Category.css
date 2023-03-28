@@ -21,7 +21,6 @@
 }
 
 .category-link:hover {
-
     box-shadow: 0 0 .8em orange;
     animation: wiggle 2s infinite;
     transform: scale(1.2);
