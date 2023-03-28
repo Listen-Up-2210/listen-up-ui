@@ -6,16 +6,16 @@ function Category() {
 
     return (
         <div className="categories">
-            <Link to ='/animals'>
+            <Link to='/animals'>
                 <button>Animals</button>
             </Link>
-            <Link to ='/instruments'>
+            <Link to='/instruments'>
                 <button>Instruments</button>
             </Link>
-            <Link to ='/machines'>
+            <Link to='/machines'>
                 <button>Machines</button>
             </Link>
-            <Link to ='/misc'>
+            <Link to='/misc'>
                 <button>Miscellaneous</button>
             </Link>
         </div>

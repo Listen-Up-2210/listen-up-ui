@@ -4,15 +4,18 @@ import { Link, useLocation } from 'react-router-dom'
 
 function Difficulty() {
 
+    const location = useLocation()
+    const category = location.pathname
+    
     return (
         <div className="difficulties">
-            <Link to ='/easy'>
+            <Link to={`${category}/easy`}>
                 <button>Easy</button>
             </Link>
-            <Link to ='/medium'>
+            <Link to={`${category}/medium`}>
                 <button>Medium</button>
             </Link>
-            <Link to ='/hard'>
+            <Link to={`${category}/hard`}>
                 <button>Hard</button>
             </Link>
         </div>
