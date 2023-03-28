@@ -1,9 +1,9 @@
 import React from "react";
 import './Audio.css'
 
-const Audio = ({audio}) => {
+const Audio = ({audioURL}) => {
   return (
-    <h1>Audio Player</h1>
+    <h1>{audioURL}</h1>
   )
 }
 

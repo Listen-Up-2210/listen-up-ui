@@ -8,18 +8,19 @@ const Question = () => {
   const deck = [
     {
       id: 16933,
-      audio: 'url',
+      audioURL: "https://freesound.org/people/acclivity/sounds/16933/",
       correctAnswer: "Donkey",
       wrongAnswers: ["Horse", "Goat", "Cow"]
     },
     {
       id: 73371,
-      audio: 'url',
+      audioURL: "https://freesound.org/people/sofajoe/sounds/73371/",
       correctAnswer: "Bee",
       wrongAnswers: ["Hornet", "Humming Bird", "Mosquito"]
     },
     {
       id: 510917,
+      audioURL: "https://freesound.org/people/Lydmakeren/sounds/510917/",
       correctAnswer: "Seagull",
       wrongAnswers: ["Pelican", "Eagle", "Hawk"],
     }
@@ -35,7 +36,7 @@ const Question = () => {
   const gameCards = deck.map(question => {
     return (
       <>
-        <Audio audio={question.audio}/>
+        <Audio audioURL={question.audioURL}/>
         <Choices 
         correctAnswer={question.correctAnswer}
         wrongAnswers={question.wrongAnswers}
