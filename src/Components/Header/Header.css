@@ -1,4 +1,25 @@
 .header {
-  display: flex;
-  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: solid black 1px;
+}
+
+.title {
+ text-align:center;
+}
+
+.modal-icons-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.modal-button {
+  display: inline-block;
+  height: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
