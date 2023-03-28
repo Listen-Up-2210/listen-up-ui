@@ -9,15 +9,9 @@ function Difficulty() {
     
     return (
         <div className="difficulties">
-            <Link to={`${category}/easy`}>
-                <button>Easy</button>
-            </Link>
-            <Link to={`${category}/medium`}>
-                <button>Medium</button>
-            </Link>
-            <Link to={`${category}/hard`}>
-                <button>Hard</button>
-            </Link>
+            <Link className="difficulty-link easy" to={`${category}/easy`}>Easy</Link>
+            <Link className="difficulty-link medium" to={`${category}/medium`}>Medium</Link>
+            <Link className="difficulty-link hard" to={`${category}/hard`}>Hard</Link>
         </div>
     )
 }
