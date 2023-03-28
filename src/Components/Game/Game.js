@@ -34,12 +34,15 @@ import "./Game.css"
     .then(res => res.json)
     .then(data => {
       console.log(data)
+      deck = data
     })
     .catch(err => console.log(err))
+    return deck
   }
 
   setScore = () => {
-    return score ++
+    score = prevScore + 1
+    return score    
   }
 
   setName = (e) => {
