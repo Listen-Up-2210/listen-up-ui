@@ -16,6 +16,31 @@ import "./Game.css"
     setName = ''
   }
 
+  setDeck = () => {
+
+  }
+
+  setScore = () => {
+    return score ++
+  }
+
+  setInstructions = () => {
+    instructions = true
+    return instructions
+  }
+
+  setLeaderboard = () => {
+    leaderboard = true
+    return leaderboard
+  }
+
+  setName = (input) => {
+    name = input
+    return name
+  }
+
+
+
   return (
     <div className="game-container">
       <h1>Hi, I'm the game component!</h1>
