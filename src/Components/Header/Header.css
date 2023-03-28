@@ -1,25 +1,31 @@
 .header {
-  position: fixed;
-  top: 0;
+  position: relative;
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   background-color: #fff;
   border-bottom: solid black 1px;
 }
 
 .title {
- text-align:center;
+ margin: 0;
+ position:absolute;
+ left: 50%;
+ transform: translateX(-50%);
 }
 
 .modal-icons-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .modal-button {
-  display: inline-block;
-  height: 100%;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.modal-button:hover {
+  cursor: pointer;
+  transform: scale(1.1)
 }

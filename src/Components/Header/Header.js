@@ -8,21 +8,21 @@ export default function Header() {
     const [showModal, setShowModal] = useState(true);
     const [modalContent, setModalContent] = useState('info')
 
-    const handleShowModal = (e) => {
-        setShowModal(true);
-        setModalContent(e.target.value)
+    const handleShowModal = (content) => {
+      setShowModal(true);
+      setModalContent(content)
     };
 
     const handleCloseModal = () => {
-        setShowModal(false);
+      setShowModal(false);
     };
 
   return (
     <header className='header'>
       <h1 className='title'>Listen Up!</h1>
       <div className='modal-icons-container'>
-        <img src={instructionIcon} alt="instructions" className='modal-button' onClick={e => handleShowModal(e)} value="info"/>
-        <img src={leaderboardIcon} alt="leaderboard" className='modal-button' onClick={e => handleShowModal(e)} value="leader"/>
+        <img src={instructionIcon} alt="instructions" className='modal-button' onClick={e => handleShowModal("value")}/>
+        <img src={leaderboardIcon} alt="leaderboard" className='modal-button' onClick={e => handleShowModal("leader")}/>
         <Modal show={showModal} handleClose={handleCloseModal} display={modalContent} />
       </div>
     </header>
