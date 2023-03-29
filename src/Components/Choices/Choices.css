@@ -1,3 +1,18 @@
-.choices-container {
-  
+
+.base {
+  background-color: rgb(227, 222, 143);
+  border-radius: 10px;
+  border: none;
+}
+
+.correct {
+  background-color: green;
+  border-radius: 10px;
+  border: none;
+}
+
+.incorrect {
+  background-color: red;
+  border-radius: 10px;
+  border: none;
 }

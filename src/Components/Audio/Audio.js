@@ -6,7 +6,7 @@ const Audio = ({audioURL}) => {
   return (
     <ReactAudioPlayer
       src={audioURL}
-      autoPlay
+      // autoPlay
       controls
     />
   )
