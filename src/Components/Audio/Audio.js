@@ -1,9 +1,14 @@
 import React from "react";
 import './Audio.css'
+import ReactAudioPlayer from "react-audio-player";
 
 const Audio = ({audioURL}) => {
   return (
-    <h1>{audioURL}</h1>
+    <ReactAudioPlayer
+      src={audioURL}
+      autoPlay
+      controls
+    />
   )
 }
 
