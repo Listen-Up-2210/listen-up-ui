@@ -1,0 +1,43 @@
+.header {
+  align-items: center;
+  background-color: #fff;
+  border-bottom: solid black 1px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+}
+
+.title {
+  left: 50%;
+  margin: 0;
+  position:absolute;
+  transform: translateX(-50%);
+}
+
+.modal-icons-container {
+  align-items: center;
+  display: flex;
+}
+
+.modal-button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.modal-button:hover {
+  cursor: pointer;
+  transform: scale(1.1)
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size:x-large;
+    left: 10px;
+    transform: none;
+  }
+
+  .modal-button {
+    transform: scale(0.9);
+  }
+}
