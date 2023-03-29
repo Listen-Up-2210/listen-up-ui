@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import './Choices.css'
 
-const Choices = ({correctAnswer, wrongAnswers}) => {
+const Choices = ({correctAnswer, wrongAnswers, advanceTurn}) => {
 
   const answers = [...wrongAnswers, correctAnswer]
   const shuffledAnswers = answers.sort(() => Math.random() - .5)
 
   const checkAnswer = (e) => {
-    if(e.target.name === correctAnswer) {
-      e.target.className = 'correct'
-    } else {
-      e.target.className = 'incorrect'
-    }
+    e.target.name === correctAnswer ? e.target.className = 'correct' :
+    e.target.className = 'incorrect'
+    advanceTurn(e)
   }
 
   const answerButtons = shuffledAnswers?.map((answer, index) => {

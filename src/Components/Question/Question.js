@@ -28,16 +28,17 @@ const Question = () => {
 
   const [turn, setTurn] = useState(0)
 
-  const handleClick = (e) => {
+  const advanceTurn = (e) => {
     e.preventDefault()
-    setTurn(turn + 1)
+    setTimeout(() => setTurn(turn + 1), 1000)
   }
 
   const gameCards = deck.map(question => {
     return (
       <div key={question.id}>
         <Audio audioURL={question.audioURL} />
-        <Choices 
+        <Choices
+        advanceTurn={advanceTurn} 
         correctAnswer={question.correctAnswer}
         wrongAnswers={question.wrongAnswers}
         />
@@ -50,7 +51,6 @@ const Question = () => {
       <div className="game-card-container">
         {gameCards[turn]}
       </div>
-      <button onClick={(e) => handleClick(e)}>Next Question</button>
     </>
   )
 }
