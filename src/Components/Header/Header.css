@@ -29,3 +29,15 @@
   cursor: pointer;
   transform: scale(1.1)
 }
+
+@media screen and (max-width: 600px) {
+  .title {
+    left: 10px;
+    transform: none;
+    font-size:x-large;
+  }
+
+  .modal-button {
+    transform: scale(0.9);
+  }
+}
