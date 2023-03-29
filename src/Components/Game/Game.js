@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Game.css"
 
  function Game()  {
   const [deck, setDeck] = useState([])
-  const [score, setScore] = useState(0)
-  const [name, setName] = useState('')
 
   const clearInputs = () => {
-    setDeck = ''
-    setScore = 0
-    setName = ''
+    setDeck([])
+    setScore(0)
+    setName('')
   }
 
-  setDeck = () => {
+  useEffect(() => {
     const categoryQuery = `
       query {
         sound_cards(category: input) {
@@ -22,34 +20,24 @@ import "./Game.css"
         }
       }
     `
+
     fetch("URL", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        query: query
+        query: categoryQuery
       })
     })
     .then(res => res.json)
     .then(data => {
       console.log(data)
-      deck = data
+      setDeck(data)
     })
     .catch(err => console.log(err))
-    return deck
-  }
-
-  setScore = () => {
-    score = prevScore + 1
-    return score    
-  }
-
-  setName = (e) => {
-    name = event.target.value
-    return name
-  }
-
+  }, []) 
+  
 
   return (
     <div className="game-container">
