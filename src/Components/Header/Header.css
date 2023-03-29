@@ -1,23 +1,23 @@
 .header {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
   align-items: center;
   background-color: #fff;
   border-bottom: solid black 1px;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
 }
 
 .title {
- margin: 0;
- position:absolute;
- left: 50%;
- transform: translateX(-50%);
+  left: 50%;
+  margin: 0;
+  position:absolute;
+  transform: translateX(-50%);
 }
 
 .modal-icons-container {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .modal-button {
@@ -32,9 +32,9 @@
 
 @media screen and (max-width: 600px) {
   .title {
+    font-size:x-large;
     left: 10px;
     transform: none;
-    font-size:x-large;
   }
 
   .modal-button {
