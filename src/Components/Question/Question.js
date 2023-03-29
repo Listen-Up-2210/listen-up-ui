@@ -35,13 +35,13 @@ const Question = () => {
 
   const gameCards = deck.map(question => {
     return (
-      <>
-        <Audio audioURL={question.audioURL}/>
+      <div key={question.id}>
+        <Audio audioURL={question.audioURL} />
         <Choices 
         correctAnswer={question.correctAnswer}
         wrongAnswers={question.wrongAnswers}
         />
-      </>
+      </div>
     )
   })
 

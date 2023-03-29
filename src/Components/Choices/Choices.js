@@ -7,6 +7,10 @@ const Choices = ({correctAnswer, wrongAnswers}) => {
 
   const shuffledAnswers = answers.sort(() => Math.random() - .5)
 
+  const checkAnswer = () => {
+    
+  }
+
   const answerButtons = shuffledAnswers.map(answer => {
     return (
       <button>{answer}</button>
