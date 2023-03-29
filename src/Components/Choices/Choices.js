@@ -5,7 +5,7 @@ const Choices = ({correctAnswer, wrongAnswers}) => {
 
   const answers = [...wrongAnswers, correctAnswer]
 
-  const shuffledAnswers = answers.sort(() => Math.random() - .5)
+  const shuffledAnswers = answers.sort((a, b) => Math.random() - .5)
 
   return (
     <>
