@@ -5,15 +5,18 @@ const Choices = ({correctAnswer, wrongAnswers}) => {
 
   const answers = [...wrongAnswers, correctAnswer]
 
-  const shuffledAnswers = answers.sort((a, b) => Math.random() - .5)
+  const shuffledAnswers = answers.sort(() => Math.random() - .5)
+
+  const answerButtons = shuffledAnswers.map(answer => {
+    return (
+      <button>{answer}</button>
+    )
+  })
 
   return (
     <>
       <div className="choices-container">
-        <button>{shuffledAnswers[0]}</button>
-        <button>{shuffledAnswers[1]}</button>
-        <button>{shuffledAnswers[2]}</button>
-        <button>{shuffledAnswers[3]}</button>
+        {answerButtons}
       </div>
     </>
   )
