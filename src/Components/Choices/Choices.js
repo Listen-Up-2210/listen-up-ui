@@ -3,15 +3,11 @@ import './Choices.css'
 
 const Choices = ({correctAnswer, wrongAnswers}) => {
 
-  const [selectedAnswer, setSelectedAnswer] = useState('')
-
   const answers = [...wrongAnswers, correctAnswer]
   const shuffledAnswers = answers.sort(() => Math.random() - .5)
 
   const checkAnswer = (e) => {
-    console.log(e.target.id)
-    setSelectedAnswer(e.target.name)
-    if(selectedAnswer === correctAnswer) {
+    if(e.target.name === correctAnswer) {
       e.target.className = 'correct'
     } else {
       e.target.className = 'incorrect'
