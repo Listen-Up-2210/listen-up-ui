@@ -37,11 +37,9 @@ import { useLocation } from 'react-router-dom'
     .catch(err => console.log(err))
   }, []) 
   
-
   return (
     <Question deck={deck}/>
   )
-
  }
 
 export default Game
