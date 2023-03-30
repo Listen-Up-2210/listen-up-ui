@@ -32,15 +32,16 @@ import { useLocation } from 'react-router-dom'
   //   console.log('LOCATION', location)
   //   const categoryQuery = `
   //     query {
-  //       sound_cards(category: location[1]) {
-  //         id:
-  //         correct answer:
-  //         wrong answers:
+  //       soundCardsByCategory(category: location[1]) {
+  //         id
+  //         correctAnswer
+  //         wrongAnswers
+  //         link
   //       }
   //     }
   //   `
 
-  //   fetch("URL", {
+  //   fetch("https://listen-up-be.herokuapp.com/graphql", {
   //     method: "POST",
   //     headers: {
   //       "Content-Type": "application/json"
