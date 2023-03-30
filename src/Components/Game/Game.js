@@ -28,7 +28,7 @@ import { useLocation } from 'react-router-dom'
         query: categoryQuery
       })
     })
-    .then(res => res.json)
+    .then(res => res.json())
     .then(data => {
       console.log(data)
       setDeck(data)
