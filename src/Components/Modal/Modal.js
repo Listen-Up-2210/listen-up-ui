@@ -14,8 +14,8 @@ const Modal = ({ show, handleClose, display }) => {
             </section>
                 :
             <section className="modal-main">
-                <h2>Instruction Content</h2>
-                <p>This is the content of the modal.</p>
+                <h2>Instructions</h2>
+                <p>To play the game, click the play button to hear a sound and then select one of the four choices provided to submit your guess. There are eight questions a game. Good luck!</p>
                 <button onClick={handleClose}>Close</button>
             </section>
         }
