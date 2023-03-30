@@ -16,3 +16,17 @@
   border-radius: 10px;
   border: none;
 }
+
+.game-card-container {
+  border: 1px solid black;
+  height: 50%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.choices-container {
+  display: flex;
+  justify-content: center;
+}
