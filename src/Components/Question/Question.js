@@ -35,7 +35,7 @@ const Question = () => {
 
   const gameCards = deck.map(question => {
     return (
-      <div key={question.id}>
+      <div className='card' key={question.id}>
         <Audio audioURL={question.audioURL} />
         <Choices
         advanceTurn={advanceTurn} 
@@ -47,11 +47,9 @@ const Question = () => {
   })
 
   return (
-    <>
-      <div className="game-card-container">
-        {gameCards[turn]}
-      </div>
-    </>
+    <div className="game-card-container">
+      {gameCards[turn]}
+    </div>
   )
 }
 
