@@ -1,25 +1,27 @@
 
 .base {
-  background-color: rgb(227, 222, 143);
+  background-color: rgb(8, 189, 189);
   border-radius: 10px;
   border: none;
   width: 20%;
 }
 
 .base:hover {
-  background-color: rgb(168, 164, 107);
+  background-color: rgb(8, 140, 140);
 }
 
 .correct {
-  background-color: green;
+  background-color: rgb(41, 191, 18);
   border-radius: 10px;
   border: none;
+  width: 20%;
 }
 
 .incorrect {
-  background-color: red;
+  background-color: rgb(242, 27, 63);
   border-radius: 10px;
   border: none;
+  width: 20%;
 }
 
 .game-card-container {
@@ -39,7 +41,7 @@
 .choices-container {
   display: flex;
   justify-content: space-around;
-  width: 75%;
+  width: 85%;
   height: 10%;
 }
 
