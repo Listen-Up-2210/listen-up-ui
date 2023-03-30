@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Game.css"
+import Question from './Question/Question'
 
  function Game()  {
   const [deck, setDeck] = useState([])
@@ -42,6 +43,7 @@ import "./Game.css"
   return (
     <div className="game-container">
       <h1>Hi, I'm the game component!</h1>
+      <Question deck={deck}/>
     </div>
   )
 
