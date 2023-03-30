@@ -30,17 +30,19 @@ const Question = () => {
 
   const advanceTurn = (e) => {
     e.preventDefault()
-    setTimeout(() => setTurn(turn + 1), 1000)
+    setTimeout(() => setTurn(turn + 1), 3000)
   }
 
   const gameCards = deck.map(question => {
+    const answers = [...question.wrongAnswers, question.correctAnswer]
+    const shuffledAnswers = answers.sort(() => Math.random() - .5)
     return (
       <div className='card' key={question.id}>
         <Audio audioURL={question.audioURL} />
         <Choices
         advanceTurn={advanceTurn} 
         correctAnswer={question.correctAnswer}
-        wrongAnswers={question.wrongAnswers}
+        shuffledAnswers={shuffledAnswers}
         />
       </div>
     )
