@@ -17,11 +17,21 @@
   
 .modal-main {
     background-color: white;
-    height: auto;
     left: 50%;
-    padding: 20px;
+    line-height: 2rem;
+    max-width: 520px;
+    padding: 32px;
     position: fixed;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+}
+
+.modal-main > h2 {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+}
+
+.close-Btn {
+    float: right;
+    font-size: 2rem;
 }
