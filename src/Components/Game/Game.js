@@ -7,10 +7,6 @@ import { useLocation } from 'react-router-dom'
   const [deck, setDeck] = useState([])
   let location = useLocation().pathname.split("/")
 
-  const clearInputs = () => {
-    setDeck([])
-  }
-
   useEffect(() => {
     console.log('LOCATION', location)
     const categoryQuery = `
