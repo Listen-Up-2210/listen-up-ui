@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Category />}/>
         <Route path='/:category' element={<Difficulty />} />
-        <Route path='/:category/:difficulty' element={<h1>option component</h1>} />
+        <Route path='/:category/:difficulty' element={<Game />} />
       </Routes>
     </div>
   );

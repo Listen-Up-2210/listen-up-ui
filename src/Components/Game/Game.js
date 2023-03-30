@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./Game.css"
-import Question from './Question/Question'
+// import Question from './Question/Question'
+import { useLocation } from 'react-router-dom'
 
  function Game()  {
   const [deck, setDeck] = useState([])
+  let location = useLocation().pathname.split("/")
 
   const clearInputs = () => {
     setDeck([])
-    setScore(0)
-    setName('')
   }
 
   useEffect(() => {
+    console.log('LOCATION', location)
     const categoryQuery = `
       query {
-        sound_cards(category: input) {
+        sound_cards(category: location[1]) {
           id:
           correct answer:
           wrong answers:
@@ -42,8 +43,7 @@ import Question from './Question/Question'
 
   return (
     <div className="game-container">
-      <h1>Hi, I'm the game component!</h1>
-      <Question deck={deck}/>
+      {/* <Question deck={deck}/> */}
     </div>
   )
 
