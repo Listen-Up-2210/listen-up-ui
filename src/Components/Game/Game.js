@@ -43,7 +43,13 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
       setCard(data.data.soundCardsByCategory)
     })
     .catch(err => setError(err))
-  }, []) 
+  }, [])
+  
+  useEffect(()=>{
+    fetch("https://listen-up-be.herokuapp.com/graphql", {
+
+    })
+  },[deckID])
   
   return (
     <Fragment>
