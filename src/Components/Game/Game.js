@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./Game.css"
 import Question from '../Question/Question'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
  function Game()  {
   const [deck, setDeck] = useState([])
+  const categories = ['animals', 'instruments', 'machines', 'misc']
+  const difficulties = ['easy', 'medium', 'hard']
+  const navigate = useNavigate()
   let location = useLocation().pathname.split("/")
 
+  console.log(location)
   useEffect(() => {
-    console.log("Location" , location[1])
+
+    if(!categories.includes(location[1]) || !difficulties.includes(location[2])) {
+      navigate('/error/404')
+  }
     const categoryQuery = `
       query {
         soundCardsByCategory(category: "${location[1]}") {
