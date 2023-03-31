@@ -2,6 +2,7 @@ import './App.css';
 import Game from '../Game/Game'
 import Header from '../Header/Header';
 import {Route, Routes} from 'react-router-dom'
+import Question from '../Question/Question';
 import Category from '../Category/Category'
 import Difficulty from '../Difficulty/Difficulty'
 import Error404 from '../404/404'
