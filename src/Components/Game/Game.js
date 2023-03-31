@@ -36,7 +36,7 @@ import { useLocation } from 'react-router-dom'
       console.log(data)
       setDeck(data.data.soundCardsByCategory)
     })
-    // .then(() => setLoading(false))
+    .then(() => setLoading(false))
     .catch(err => console.log(err))
   }, []) 
   
