@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Game.css"
-// import Question from './Question/Question'
+import Question from '../Question/Question'
 import { useLocation } from 'react-router-dom'
 
  function Game()  {
@@ -8,18 +8,19 @@ import { useLocation } from 'react-router-dom'
   let location = useLocation().pathname.split("/")
 
   useEffect(() => {
-    console.log('LOCATION', location)
+    console.log("Location" , location[1])
     const categoryQuery = `
       query {
-        sound_cards(category: location[1]) {
-          id:
-          correct answer:
-          wrong answers:
+        soundCardsByCategory(category: "${location[1]}") {
+          id
+          correctAnswer
+          wrongAnswers
+          link
         }
       }
     `
 
-    fetch("URL", {
+    fetch("https://listen-up-be.herokuapp.com/graphql", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -31,18 +32,14 @@ import { useLocation } from 'react-router-dom'
     .then(res => res.json())
     .then(data => {
       console.log(data)
-      setDeck(data)
+      setDeck(data.data.soundCardsByCategory)
     })
     .catch(err => console.log(err))
   }, []) 
   
-
   return (
-    <div className="game-container">
-      {/* <Question deck={deck}/> */}
-    </div>
+    <Question deck={deck}/>
   )
-
  }
 
 export default Game
