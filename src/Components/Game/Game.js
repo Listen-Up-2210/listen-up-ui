@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Game.css"
 import Question from '../Question/Question'
+import Loading from '../Loading/Loading'
 import { useLocation } from 'react-router-dom'
 
  function Game()  {
   const [deck, setDeck] = useState([])
+  const [loading, setLoading] = useState(true)
   let location = useLocation().pathname.split("/")
 
   useEffect(() => {
@@ -34,11 +36,14 @@ import { useLocation } from 'react-router-dom'
       console.log(data)
       setDeck(data.data.soundCardsByCategory)
     })
+    .then(() => setLoading(false))
     .catch(err => console.log(err))
   }, []) 
   
   return (
-    <Question deck={deck}/>
+    <>
+      {loading ? <Loading/> : <Question deck={deck}/>}
+    </>
   )
  }
 
