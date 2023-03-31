@@ -1,11 +1,10 @@
 import React from "react";
 import "./ErrorDisplay.css"
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function ErrorDisplay(props) {
 
-    const location = useLocation().pathname.split("/")
-    const error = location[2]
+    const error = props.errorCode
     let errorMessage = ''
 
     if(Number(error) > 500) {

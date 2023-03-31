@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Category />}/>
         <Route path="/:category" element={<Difficulty />} />
         <Route path="/:category/:difficulty" element={<Game />} />
-        <Route path="/error/:number" element={<ErrorDisplay />} /> 
+        <Route path="/error/:number" element={<ErrorDisplay errorCode="404" />} /> 
       </Routes>
     </div>
   );
