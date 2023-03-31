@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 function Difficulty() {
 
-    const validCategories = ['/animals', 'instruments', '/machines', '/misc']
+    const validCategories = ['/animals', '/instruments', '/machines', '/misc']
     const location = useLocation()
     const category = location.pathname
     const navigate = useNavigate()
