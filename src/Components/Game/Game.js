@@ -8,7 +8,6 @@ import { useLocation } from 'react-router-dom'
   let location = useLocation().pathname.split("/")
 
   useEffect(() => {
-    console.log("Location" , location[1])
     const categoryQuery = `
       query {
         soundCardsByCategory(category: "${location[1]}") {
@@ -31,7 +30,6 @@ import { useLocation } from 'react-router-dom'
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       setDeck(data.data.soundCardsByCategory)
     })
     .catch(err => console.log(err))
