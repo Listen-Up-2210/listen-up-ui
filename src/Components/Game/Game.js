@@ -5,7 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 
  function Game()  {
-  const [deck, setDeck] = useState([])
+  const [deckID,setDeckID] = useState(0)
+  const [card,setCard] = useState({})
   const [error, setError] = useState('')
   const categories = ['animals', 'instruments', 'machines', 'misc']
   const difficulties = ['easy', 'medium', 'hard']
@@ -18,7 +19,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     }
     const categoryQuery = `
       query {
-        soundCardsByCategory(category: "${location[1]}") {
+        soundCardsByCategory(category: "${location[1]}", deckID:"${deckID}") {
           id
           correctAnswer
           wrongAnswers
@@ -39,7 +40,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     .then(res => res.json())
     .then(data => {
       console.log(data)
-      setDeck(data.data.soundCardsByCategory)
+      setCard(data.data.soundCardsByCategory)
     })
     .catch(err => setError(err))
   }, []) 
@@ -48,7 +49,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     <Fragment>
       {(deck.length === 0 && !error) && <p>Loading...</p>}
       {error && <h1>Something went wrong, please try again.</h1>}
-      <Question deck={deck}/>
+      <Question card={card}/>
     </Fragment>
   )
  }

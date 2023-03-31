@@ -3,7 +3,7 @@ import "./Question.css"
 import Audio from '../Audio/Audio'
 import Choices from "../Choices/Choices";
 
-const Question = ({deck}) => {
+const Question = ({card}) => {
 
   const [turn, setTurn] = useState(0)
 
@@ -12,8 +12,8 @@ const Question = ({deck}) => {
     setTimeout(() => setTurn(turn + 1), 3000)
   }
 
-  const gameCards = deck.map(question => {
-    const answers = [...question.wrongAnswers, question.correctAnswer]
+  const gameCards = () => {
+    const answers = [...card.wrongAnswers, card.correctAnswer]
     const shuffledAnswers = answers.sort(() => Math.random() - .5)
     return (
       <div className='card' key={question.id}>
@@ -25,7 +25,8 @@ const Question = ({deck}) => {
         />
       </div>
     )
-  })
+  }
+  
 
   return (
     <div className="game-card-container">
