@@ -8,8 +8,14 @@ function ErrorDisplay(props) {
     const error = location[2]
     let errorMessage = ''
 
-    if(error === '404') {
-        errorMessage = 'The page you were looking for was not found, please click the button below to return to category selection!'
+    if(Number(error) > 500) {
+        errorMessage = 'Please try again later.'
+    }
+    else if(Number(error) > 400) {
+        errorMessage = 'The page you were looking for was not found.'
+    }
+    else{
+        errorMessage = 'Something went wrong please try again.'
     }
 
     return (
