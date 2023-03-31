@@ -12,6 +12,11 @@ const Question = ({card}) => {
     setTimeout(() => setTurn(turn + 1), 3000)
   }
 
+  const fetchCard = () => {
+    fetch("https://listen-up-be.herokuapp.com/graphql")
+  }
+
+
   const gameCards = () => {
     const answers = [...card.wrongAnswers, card.correctAnswer]
     const shuffledAnswers = answers.sort(() => Math.random() - .5)
@@ -30,7 +35,7 @@ const Question = ({card}) => {
 
   return (
     <div className="game-card-container">
-      {gameCards[turn]}
+      {gameCards}
     </div>
   )
 }
