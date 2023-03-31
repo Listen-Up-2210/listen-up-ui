@@ -18,8 +18,10 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
       navigate('/404')
     }
     const categoryQuery = `
-      query {
-        soundCardsByCategory(category: "${location[1]}", deckID:"${deckID}") {
+      mutation {
+        createDeck(input: {
+          category: "${location[1]}"
+        }) {
           id
           correctAnswer
           wrongAnswers
