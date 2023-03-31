@@ -36,3 +36,8 @@
     float: right;
     font-size: 2rem;
 }
+
+.close-Btn:hover {
+    cursor: pointer;
+    color: red;
+}
