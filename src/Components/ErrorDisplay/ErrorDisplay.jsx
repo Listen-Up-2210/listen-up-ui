@@ -7,10 +7,10 @@ function ErrorDisplay(props) {
     const error = props.errorCode
     let errorMessage = ''
 
-    if(Number(error) > 500) {
+    if(Number(error) >= 500) {
         errorMessage = 'Please try again later.'
     }
-    else if(Number(error) > 400) {
+    else if(Number(error) >= 400) {
         errorMessage = 'The page you were looking for was not found.'
     }
     else{

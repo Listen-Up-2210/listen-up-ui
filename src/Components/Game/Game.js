@@ -15,7 +15,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
   useEffect(() => {
     if(!categories.includes(location[1]) || !difficulties.includes(location[2])) {
       navigate('/404')
-  }
+    }
     const categoryQuery = `
       query {
         soundCardsByCategory(category: "${location[1]}") {
