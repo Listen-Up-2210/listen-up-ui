@@ -19,14 +19,9 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     }
     const categoryQuery = `
       mutation {
-        createDeck(input: {
+        input: {
           category: "${location[1]}"
-        }) {
-          id
-          correctAnswer
-          wrongAnswers
-          link
-        }
+        } 
       }
     `
 
@@ -41,24 +36,20 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
-      setCard(data.data.soundCardsByCategory)
+      console.log("hi", data)
+      // setCard(data.data.soundCardsByCategory)
     })
     .catch(err => setError(err))
   }, [])
   
-  useEffect(()=>{
-    fetch("https://listen-up-be.herokuapp.com/graphql", {
+  // useEffect(()=>{
+  //   fetch("https://listen-up-be.herokuapp.com/graphql", {
 
-    })
-  },[deckID])
+  //   })
+  // },[deckID])
   
   return (
-    <Fragment>
-      {(deck.length === 0 && !error) && <p>Loading...</p>}
-      {error && <h1>Something went wrong, please try again.</h1>}
       <Question card={card}/>
-    </Fragment>
   )
  }
 
