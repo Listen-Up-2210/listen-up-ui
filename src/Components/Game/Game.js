@@ -10,7 +10,6 @@ import { useLocation, useNavigate } from 'react-router-dom'
   const navigate = useNavigate()
   let location = useLocation().pathname.split("/")
 
-  console.log(location)
   useEffect(() => {
 
     if(!categories.includes(location[1]) || !difficulties.includes(location[2])) {
