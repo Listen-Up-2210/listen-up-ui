@@ -5,9 +5,10 @@ import {Route, Routes} from 'react-router-dom'
 import Question from '../Question/Question';
 import Category from '../Category/Category'
 import Difficulty from '../Difficulty/Difficulty'
-import Error404 from '../404/404'
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 
 function App() {
+
   return (
     <div className="App">
       <Header/>
@@ -15,7 +16,7 @@ function App() {
         <Route path="/" element={<Category />}/>
         <Route path="/:category" element={<Difficulty />} />
         <Route path="/:category/:difficulty" element={<Game />} />
-        <Route path="/404" element={<Error404 />} /> 
+        <Route path="/404" element={<ErrorDisplay />} /> 
       </Routes>
     </div>
   );
