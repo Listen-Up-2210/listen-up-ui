@@ -1,4 +1,5 @@
 import './App.css';
+import Game from '../Game/Game'
 import Header from '../Header/Header';
 import {Route, Routes} from 'react-router-dom'
 import Category from '../Category/Category'
@@ -12,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Category />}/>
         <Route path="/:category" element={<Difficulty />} />
-        <Route path="/:category/:difficulty" element={<h1>option component</h1>} />
+        <Route path="/:category/:difficulty" element={<Game />} />
         <Route path="/404" element={<Error404 />} /> 
       </Routes>
     </div>

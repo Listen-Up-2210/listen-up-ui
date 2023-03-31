@@ -1,12 +1,19 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import {useLocation} from 'react-router-dom'
 import "./Header.css"
 import Modal from "../Modal/Modal";
 import instructionIcon from "../../instructions-icon.png"
 import leaderboardIcon from "../../leaderboard-icon.png"
 
 export default function Header() {
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(undefined);
     const [modalContent, setModalContent] = useState('')
+
+    let location = useLocation()
+
+    useEffect(()=>{
+      setShowModal(location.pathname === "/")
+    },[])
 
     const handleShowModal = (content) => {
       setShowModal(true);
