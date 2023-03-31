@@ -1,14 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import "./Game.css"
 import Question from '../Question/Question'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 
  function Game()  {
   const [deck, setDeck] = useState([])
+  const [error, setError] = useState('')
+  const categories = ['animals', 'instruments', 'machines', 'misc']
+  const difficulties = ['easy', 'medium', 'hard']
+  const navigate = useNavigate()
   let location = useLocation().pathname.split("/")
 
   useEffect(() => {
-    console.log("Location" , location[1])
+    if(!categories.includes(location[1]) || !difficulties.includes(location[2])) {
+      navigate('/404')
+    }
     const categoryQuery = `
       query {
         soundCardsByCategory(category: "${location[1]}") {
@@ -34,11 +41,15 @@ import { useLocation } from 'react-router-dom'
       console.log(data)
       setDeck(data.data.soundCardsByCategory)
     })
-    .catch(err => console.log(err))
+    .catch(err => setError(err))
   }, []) 
   
   return (
-    <Question deck={deck}/>
+    <Fragment>
+      {(deck.length === 0 && !error) && <p>Loading...</p>}
+      {error && <h1>Something went wrong, please try again.</h1>}
+      <Question deck={deck}/>
+    </Fragment>
   )
  }
 
