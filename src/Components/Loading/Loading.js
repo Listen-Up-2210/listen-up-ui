@@ -1,5 +1,4 @@
 import React from "react";
-import loadingIcon from "../../icons8-loading-circle.gif"
 import './Loading.css'
 
 export default function Loading(){
