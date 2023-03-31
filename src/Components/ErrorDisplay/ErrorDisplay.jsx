@@ -13,7 +13,7 @@ function ErrorDisplay(props) {
     else if(Number(error) >= 400) {
         errorMessage = 'The page you were looking for was not found.'
     }
-    else{
+    else {
         errorMessage = 'Something went wrong please try again.'
     }
 

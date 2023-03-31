@@ -1,5 +1,4 @@
-.error-display
-{
+.error-display {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
@@ -12,8 +11,7 @@
 	margin: 0;
 }
 
-.return-link
-{
+.return-link {
 	background-color: white;
 	border: black .2em solid;
 	border-radius: 2em;
@@ -26,15 +24,13 @@
 	width: 8em;
 }
 
-.return-link:hover
-{
+.return-link:hover {
 	animation: wiggle 2s infinite;
 	box-shadow: 0 0 .8em black;
 	transform: scale(1.2);
 }
 
-@keyframes wiggle
-{
+@keyframes wiggle {
 	0%
 	{
 		transform: rotate(0deg) scale(1.1);
