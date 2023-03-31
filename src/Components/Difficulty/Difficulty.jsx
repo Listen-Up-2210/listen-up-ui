@@ -12,7 +12,7 @@ function Difficulty() {
     
     useEffect(() => {
         if(!validCategories.includes(category)) {
-            navigate('/404')
+            navigate('/error/404')
         }
     }, [])
 

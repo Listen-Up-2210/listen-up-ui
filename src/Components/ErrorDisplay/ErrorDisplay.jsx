@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom'
 function ErrorDisplay(props) {
 
     const location = useLocation().pathname.split("/")
-    const error = location[1]
+    const error = location[2]
     let errorMessage = ''
 
     if(error === '404') {
