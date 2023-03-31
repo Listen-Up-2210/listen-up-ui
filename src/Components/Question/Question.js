@@ -16,11 +16,11 @@ const Question = ({card}) => {
     const answers = [...card.wrongAnswers, card.correctAnswer]
     const shuffledAnswers = answers.sort(() => Math.random() - .5)
     return (
-      <div className='card' key={question.id}>
-        <Audio audioURL={question.link} />
+      <div className='card' key={card.id}>
+        <Audio audioURL={card.link} />
         <Choices
         advanceTurn={advanceTurn} 
-        correctAnswer={question.correctAnswer}
+        correctAnswer={card.correctAnswer}
         shuffledAnswers={shuffledAnswers}
         />
       </div>
