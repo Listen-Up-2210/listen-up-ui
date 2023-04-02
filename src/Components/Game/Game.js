@@ -32,7 +32,7 @@ import { useLocation } from 'react-router-dom'
     .then(data => {
       setDeck(data.data.soundCardsByCategory)
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err.response))
   }, []) 
   
   return (

@@ -5,13 +5,20 @@ import './Choices.css'
 const Choices = ({correctAnswer, shuffledAnswers, advanceTurn}) => {
 
   const [button, setButton] = useState(false)
+  const [correctAnswers, setCorrectAnswers] = useState(0)
 
   const checkAnswer = (e) => {
     e.preventDefault()
-    e.target.name === correctAnswer ? e.target.className = 'correct' :
+    e.target.name === correctAnswer ? countCorrectGuess(e) :
     e.target.className = 'incorrect'
     setButton(true)
     advanceTurn(e)
+  }
+
+  const countCorrectGuess = (e) => {
+    e.target.className = 'correct'
+    setCorrectAnswers(correctAnswers + 1)
+    console.log(correctAnswers)
   }
 
   const answerButtons = shuffledAnswers.map((answer, index) => {
