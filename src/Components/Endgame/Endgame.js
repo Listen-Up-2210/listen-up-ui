@@ -5,10 +5,10 @@ import { NavLink } from 'react-router-dom'
 function Endgame({score, category, difficulty}) {
   const [name, setName] = useState("")
 
-  const handleChange = (e) => {
-    console.log("handleChange", e.target.value)
-    setName([e.target.name]e.target.value)
-  }
+  // const handleChange = (e) => {
+  //   console.log("handleChange", e.target.value)
+  //   setName([e.target.name], e.target.value)
+  // }
 
   useEffect(() => {
     const scorePost = `
@@ -45,14 +45,14 @@ function Endgame({score, category, difficulty}) {
       })
       .catch(err => console.log(err))
     }, [])
-  
+
 
   return (
     <div>
       <h2>You got props out of 8 questions correct!</h2>
       <form className="form-container">
-        <input type="text" name="username" placeholder="Enter name here" value={name}required />
-        <NavLink><button onClick={(e) => handleClick(e)}>Submit</button></NavLink>
+        <input type="text" name="username" placeholder="Enter name here" value={name} onChange={e => setName(e.target.value)} required />
+        <NavLink><button>Submit</button></NavLink>
       </form>
     </div>
   )
