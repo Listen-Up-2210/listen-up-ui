@@ -41,7 +41,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data.data)
+      // console.log(data.data)
       setDeckID(data.data.createDeck.deck.id)
     })
     .catch(err => setError(err))
