@@ -5,7 +5,7 @@ export default function Loading(){
 
   return (
     <section className="loading-container">
-      <div class="loader"></div>
+      <div className="loader"></div>
       <p className="loading-text"> Game is Loading, Please Wait </p>
     </section>
   )
