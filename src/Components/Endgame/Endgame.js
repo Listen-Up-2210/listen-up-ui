@@ -3,6 +3,26 @@ import './Endgame.css'
 import { Navlink } from 'react-router-dom'
 
 function Endgame() {
+  useEffect(() => {
+    const scorePost = `
+      mutation createLeaderBoard {
+        createLeaderboard(input: {
+          name: ${name}
+          score: ${score}
+          category: ${category}
+          difficulty: ${difficulty}
+        }) {
+          leaderboard {
+            name
+            score
+            difficulty
+            category
+          }
+          errors
+        }
+      }`
+    
+  })
 
   return (
     <div>
