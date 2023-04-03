@@ -48,9 +48,9 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
   }, [])
   
   return (
-    <div>
+    <>
       {deckID ? <Question deckID={deckID}/> : <Loading/>}
-    </div>
+    </>
 
   )
  }
