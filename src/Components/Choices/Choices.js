@@ -8,7 +8,7 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, turn}) => {
 
   const checkAnswer = (e) => {
     e.preventDefault()
-    e.target.name === correctAnswer ? () => countCorrectGuess(e) :
+    e.target.name === correctAnswer ? countCorrectGuess(e) :
     e.target.className = 'incorrect'
     setButton(true)
     advanceTurn(e)

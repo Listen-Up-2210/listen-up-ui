@@ -56,15 +56,14 @@ const Question = ({ deckID }) => {
       )
     })
   
-
   return (
-    <>
+    <div className="game-container">
       {turn < 8 ? 
       <div className="game-card-container">
         {gameCard ? gameCard : <h2>Loading</h2>}
       </div> :
       <h2>Game Over</h2> }
-    </>
+    </div>
   )
 }
 

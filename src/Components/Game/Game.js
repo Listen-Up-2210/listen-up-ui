@@ -46,7 +46,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
   }, [])
   
   return (
-    <div>
+    <div className="question-container">
       {deckID ? <Question deckID={deckID}/> : <h2>Loading</h2>}
     </div>
   )
