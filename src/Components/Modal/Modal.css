@@ -19,7 +19,7 @@
     background-color: white;
     left: 50%;
     line-height: 2rem;
-    max-width: 520px;
+    width: 520px;
     padding: 32px;
     position: fixed;
     top: 50%;
@@ -34,4 +34,11 @@
 .close-Btn {
     float: right;
     font-size: 2rem;
+}
+
+@media screen and (max-width: 580px) {
+    .modal-main {
+        width: 90%;
+    }
+    
 }
