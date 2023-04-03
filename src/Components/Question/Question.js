@@ -1,21 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Question.css"
 import Audio from '../Audio/Audio'
 import Choices from "../Choices/Choices";
 
-const Question = ({card}) => {
+const Question = ({ deckID }) => {
 
   const [turn, setTurn] = useState(0)
+  const [card,setCard] = useState({})
 
   const advanceTurn = (e) => {
     e.preventDefault()
     setTimeout(() => setTurn(turn + 1), 3000)
   }
 
-  const fetchCard = () => {
-    fetch("https://listen-up-be.herokuapp.com/graphql")
-  }
+  useEffect(() => {
+    console.log(deckID)
+    const cardQuery = `
+    query {
+        soundCard(deckId: ${deckID}) {
+           category
+           correctAnswer
+           link
+           wrongAnswers
+        }
+     }
+    `
 
+    fetch("https://listen-up-be.herokuapp.com/graphql", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        query: cardQuery
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setCard(data.data.soundCard)
+    })
+    .catch(err => console.log(err))
+  }, [])
 
   const gameCards = () => {
     const answers = [...card.wrongAnswers, card.correctAnswer]
