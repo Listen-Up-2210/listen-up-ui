@@ -2,7 +2,7 @@ import React from "react";
 
 const EndGame = ({correctAnswers}) => {
   return (
-    <h2>Game Over</h2>
+    <h2>You got {correctAnswers} right</h2>
   )
 }
 

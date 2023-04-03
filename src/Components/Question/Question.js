@@ -6,7 +6,7 @@ import EndGame from "../EndGame/EndGame";
 
 const Question = ({ deckID }) => {
 
-  const [turn,setTurn] = useState(0)
+  const [turn,setTurn] = useState(1)
   const [card,setCard] = useState([])
   const [correctAnswers, setCorrectAnswers] = useState(0)
 
@@ -20,7 +20,6 @@ const Question = ({ deckID }) => {
   }
 
   useEffect(() => {
-    console.log('use effect runs')
     const cardQuery = `
     query {
         soundCard(deckId: ${deckID}) {
@@ -68,6 +67,7 @@ const Question = ({ deckID }) => {
     <div className="game-container">
       {turn < 8 ? 
       <div className="game-card-container">
+        <h2 className="turn-count">Question: {turn} / 8</h2>
         {gameCard ? gameCard : <h2>Loading</h2>}
       </div> :
       <EndGame correctAnswers={correctAnswers}/> }
