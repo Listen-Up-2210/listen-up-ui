@@ -41,13 +41,15 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
       console.log(data)
       setDeck(data.data.soundCardsByCategory)
     })
-    .catch(err => setError(err))
+    .catch(err => {
+      console.log(err)
+      setError(err)})
   }, []) 
   
   return (
     <Fragment>
       {(deck.length === 0 && !error) && <p>Loading...</p>}
-      {error && <h1>Something went wrong, please try again.</h1>}
+      {error && <ErrorDisplay errorCode={'500'} />}
       <Question deck={deck}/>
     </Fragment>
   )
