@@ -46,14 +46,8 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     .catch(err => setError(err))
   }, [])
   
-  // useEffect(()=>{
-  //   fetch("https://listen-up-be.herokuapp.com/graphql", {
-
-  //   })
-  // },[deckID])
-  
   return (
-      <Question card={card}/>
+      <Question deckID={deckID}/>
   )
  }
 
