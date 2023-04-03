@@ -2,15 +2,21 @@ import React, { useState, useEffect } from "react";
 import "./Question.css"
 import Audio from '../Audio/Audio'
 import Choices from "../Choices/Choices";
+import EndGame from "../EndGame/EndGame";
 
 const Question = ({ deckID }) => {
 
-  const [turn, setTurn] = useState(0)
+  const [turn,setTurn] = useState(0)
   const [card,setCard] = useState([])
+  const [correctAnswers, setCorrectAnswers] = useState(0)
 
   const advanceTurn = (e) => {
     e.preventDefault()
     setTimeout(() => setTurn(turn + 1), 2000)
+  }
+
+  const addCorrectAnswer = () => {
+    setCorrectAnswers(correctAnswers + 1)
   }
 
   useEffect(() => {
@@ -52,6 +58,7 @@ const Question = ({ deckID }) => {
             advanceTurn={advanceTurn} 
             correctAnswer={card.correctAnswer}
             shuffledAnswers={shuffledAnswers}
+            addCorrectAnswer={addCorrectAnswer}
           />
         </div>
       )
@@ -63,7 +70,7 @@ const Question = ({ deckID }) => {
       <div className="game-card-container">
         {gameCard ? gameCard : <h2>Loading</h2>}
       </div> :
-      <h2>Game Over</h2> }
+      <EndGame correctAnswers={correctAnswers}/> }
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import './Choices.css'
 
-const Choices = ({correctAnswer, shuffledAnswers, advanceTurn}) => {
+const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, addCorrectAnswer}) => {
 
   const [button, setButton] = useState(false)
-  const [correctAnswers, setCorrectAnswers] = useState(0)
+  // const [correctAnswers, setCorrectAnswers] = useState(0)
 
   const checkAnswer = (e) => {
     e.preventDefault()
@@ -18,8 +18,7 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn}) => {
 
   const countCorrectGuess = (e) => {
     e.target.className = 'correct'
-    setCorrectAnswers(correctAnswers + 1)
-    console.log(correctAnswers)
+    addCorrectAnswer()
   }
 
   const answerButtons = shuffledAnswers.map((answer, index) => {
