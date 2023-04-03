@@ -25,6 +25,12 @@
   width: 20%;
 }
 
+.choices-container {
+  display: flex;
+  justify-content: space-around;
+  width: 85%;
+  height: 10%;
+}
 .game-card-container {
   height: 50%;
   width: 50%;
@@ -37,13 +43,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.choices-container {
-  display: flex;
-  justify-content: space-around;
-  width: 85%;
-  height: 10%;
 }
 
 audio {

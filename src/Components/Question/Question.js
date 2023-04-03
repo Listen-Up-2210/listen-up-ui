@@ -10,10 +10,11 @@ const Question = ({ deckID }) => {
 
   const advanceTurn = (e) => {
     e.preventDefault()
-    setTimeout(() => setTurn(turn + 1), 3000)
+    setTimeout(() => setTurn(turn + 1), 2000)
   }
 
   useEffect(() => {
+    console.log('use effect runs')
     const cardQuery = `
     query {
         soundCard(deckId: ${deckID}) {
@@ -39,7 +40,7 @@ const Question = ({ deckID }) => {
       setCard([data.data.soundCard])
     })
     .catch(err => console.log(err))
-  }, [deckID])
+  }, [deckID, turn])
 
   const gameCard = card.map((card, index) => {
       const answers = [...card.wrongAnswers, card.correctAnswer]

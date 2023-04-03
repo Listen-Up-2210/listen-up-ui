@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './Choices.css'
 
-const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, turn}) => {
+const Choices = ({correctAnswer, shuffledAnswers, advanceTurn}) => {
 
   const [button, setButton] = useState(false)
   const [correctAnswers, setCorrectAnswers] = useState(0)
@@ -12,6 +12,8 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, turn}) => {
     e.target.className = 'incorrect'
     setButton(true)
     advanceTurn(e)
+    setTimeout(() => setButton(false), 3000)
+    setTimeout(() => e.target.className = 'base', 3000)
   }
 
   const countCorrectGuess = (e) => {
@@ -21,6 +23,7 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, turn}) => {
   }
 
   const answerButtons = shuffledAnswers.map((answer, index) => {
+    console.log('answer buttons map')
     return (
       <button onClick={(e) => checkAnswer(e)}
         className='base'
@@ -34,11 +37,9 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, turn}) => {
   })
 
   return (
-    <>
-      <div className="choices-container">
-        {answerButtons}
-      </div>
-    </>
+    <div className="choices-container">
+      {answerButtons}
+    </div>
   )
 }
 
