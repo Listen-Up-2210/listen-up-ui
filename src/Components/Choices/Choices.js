@@ -2,14 +2,14 @@
 import React, { useState } from "react";
 import './Choices.css'
 
-const Choices = ({correctAnswer, shuffledAnswers, advanceTurn}) => {
+const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, turn}) => {
 
   const [button, setButton] = useState(false)
   const [correctAnswers, setCorrectAnswers] = useState(0)
 
   const checkAnswer = (e) => {
     e.preventDefault()
-    e.target.name === correctAnswer ? countCorrectGuess(e) :
+    e.target.name === correctAnswer ? () => countCorrectGuess(e) :
     e.target.className = 'incorrect'
     setButton(true)
     advanceTurn(e)

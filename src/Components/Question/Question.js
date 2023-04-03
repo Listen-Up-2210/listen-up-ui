@@ -22,15 +22,20 @@ const Question = ({deck}) => {
         advanceTurn={advanceTurn} 
         correctAnswer={question.correctAnswer}
         shuffledAnswers={shuffledAnswers}
+        turn={turn}
         />
       </div>
     )
   })
 
   return (
-    <div className="game-card-container">
-      {gameCards[turn]}
-    </div>
+    <>
+      {turn < 8 ? 
+      <div className="game-card-container">
+        {gameCards[turn]}
+      </div> :
+      <h2>Game Over</h2> }
+    </>
   )
 }
 
