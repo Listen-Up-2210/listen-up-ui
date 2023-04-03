@@ -18,10 +18,15 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
       navigate('/404')
     }
     const categoryQuery = `
-      mutation {
-        input: {
+      mutation createDeck {
+        createDeck(input: {
           category: "${location[1]}"
-        } 
+        }) 
+        {
+          deck {
+            id
+          }
+        }
       }
     `
 
@@ -36,8 +41,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     })
     .then(res => res.json())
     .then(data => {
-      console.log("hi", data)
-      // setCard(data.data.soundCardsByCategory)
+      setCard(data.data.createDeck.deck.id)
     })
     .catch(err => setError(err))
   }, [])
