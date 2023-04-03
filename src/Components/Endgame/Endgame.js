@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import './Endgame.css'
-import { Navlink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-function Endgame() {
+function Endgame({score, category, difficulty}) {
+  const [name, setName] = useState("")
+
+  const handleChange = (e) => {
+    console.log("handleChange", e.target.value)
+    setName([e.target.name]e.target.value)
+  }
+
   useEffect(() => {
     const scorePost = `
       mutation createLeaderBoard {
@@ -20,16 +27,32 @@ function Endgame() {
           }
           errors
         }
-      }`
-    
-  })
+      }
+      `
+
+      fetch("https://listen-up-be.herokuapp.com/graphql", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          query: scorePost
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log('DATA', data)
+      })
+      .catch(err => console.log(err))
+    }, [])
+  
 
   return (
     <div>
       <h2>You got props out of 8 questions correct!</h2>
       <form className="form-container">
-        <input type="text" name="username" placeholder="Enter name here" required />
-        <Navlink>Submit</Navlink>
+        <input type="text" name="username" placeholder="Enter name here" value={name}required />
+        <NavLink><button onClick={(e) => handleClick(e)}>Submit</button></NavLink>
       </form>
     </div>
   )
