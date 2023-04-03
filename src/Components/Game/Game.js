@@ -41,7 +41,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     })
     .then(res => res.json())
     .then(data => {
-      setCard(data.data.createDeck.deck.id)
+      setDeckID(data.data.createDeck.deck.id)
     })
     .catch(err => setError(err))
   }, [])
