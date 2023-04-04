@@ -9,7 +9,6 @@
 }
 .difficulty-link
 {
-	background-color: white;
 	border: .2em solid;
 	border-radius: 2em;
 	font-size: 3em;
@@ -17,7 +16,7 @@
 	line-height: 13vh;
 	text-align: center;
 	text-decoration: none;
-	width: 30vw;
+	width: 11em;
 }
 .difficulty-link:hover
 {
@@ -75,9 +74,16 @@
 	}
 }
 
-@media screen and (max-width:600px) {
-	.difficulty-link {
-		font-size:xx-large;
-		width: 90%;
+@media screen and (max-width: 700px) {
+	.difficulty-link
+	{
+		border: .3em solid;
+		border-radius: 2em;
+		font-size: 2.3em;
+		font-weight: bold;
+		line-height: 13vh;
+		text-align: center;
+		text-decoration: none;
+		width: 70vw;
 	}
-}
+  }

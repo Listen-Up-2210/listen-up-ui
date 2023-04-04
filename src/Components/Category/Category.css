@@ -18,7 +18,7 @@
 	line-height: 13vh;
 	text-align: center;
 	text-decoration: none;
-	width: 25rem;
+	width: 11em;
 }
 .category-link:hover
 {
@@ -50,9 +50,16 @@
 	}
 }
 
-@media screen and (max-width:600px) {
-	.category-link {
-		font-size:xx-large;
-		width: 90%;
+@media screen and (max-width: 700px) {
+	.category-link
+	{
+		border: .3em solid;
+		border-radius: 2em;
+		font-size: 2.3em;
+		font-weight: bold;
+		line-height: 13vh;
+		text-align: center;
+		text-decoration: none;
+		width: 70vw;
 	}
-}
+  }
