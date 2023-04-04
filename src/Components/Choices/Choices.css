@@ -23,6 +23,13 @@
   border-radius: 10px;
   border: none;
   width: 20%;
+  animation: drop 3s;
+}
+
+@keyframes drop {
+  100% {
+    transform: translate(5vw, 100vh) rotate(180deg);
+  }
 }
 
 .choices-container {
