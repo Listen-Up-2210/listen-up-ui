@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./Question.css"
 import Audio from '../Audio/Audio'
 import Choices from "../Choices/Choices";
+import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 
 const Question = ({ deckID }) => {
 
   const [turn, setTurn] = useState(0)
   const [card,setCard] = useState([])
+  const [error, setError] = useState('')
 
   const advanceTurn = (e) => {
     e.preventDefault()
@@ -60,6 +62,7 @@ const Question = ({ deckID }) => {
   return (
     <div className="game-card-container">
       {gameCard ? gameCard : <h2>Loading</h2>}
+      {error && <ErrorDisplay errorCode={'500'} />}
     </div>
   )
 }

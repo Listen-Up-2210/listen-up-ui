@@ -49,17 +49,11 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
   
   return (
     <div>
-      {(deck.length === 0 && !error) && <p>Loading...</p>}
+      {(!deckID && !error) && <p>Loading...</p>}
       {deckID && <Question deckID={deckID}/>}
       {error && <ErrorDisplay errorCode={'500'} />}
     </div>
   )
  }
-
-//  <Fragment>
-//  {(deck.length === 0 && !error) && <p>Loading...</p>}
-//  {error && <ErrorDisplay errorCode={'500'} />}
-//  <Question deck={deck}/>
-// </Fragment>
 
 export default Game
