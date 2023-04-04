@@ -16,7 +16,7 @@
 	line-height: 13vh;
 	text-align: center;
 	text-decoration: none;
-	width: 50vw;
+	width: 11em;
 }
 .difficulty-link:hover
 {
@@ -79,7 +79,7 @@
 	{
 		border: .3em solid;
 		border-radius: 2em;
-		font-size: 3em;
+		font-size: 2.3em;
 		font-weight: bold;
 		line-height: 13vh;
 		text-align: center;
