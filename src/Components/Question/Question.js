@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Question.css"
 import Audio from '../Audio/Audio'
 import Choices from "../Choices/Choices";
+import Loading from "../Loading/Loading";
 
 const Question = ({ deckID }) => {
 
@@ -59,7 +60,7 @@ const Question = ({ deckID }) => {
 
   return (
     <div className="game-card-container">
-      {gameCard ? gameCard : <h2>Loading</h2>}
+      {gameCard ? gameCard : <Loading/>}
     </div>
   )
 }
