@@ -1,44 +1,63 @@
-import React from "react";
+import React, { useState, useEffect, useContext} from "react";
 import './Endgame.css'
-import { Navlink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import Modal from "../Modal/Modal";
 
 
-function Endgame(props) {
-  const [username,setUsername] = setState('')
+function Endgame({correctAnswers, category, difficulty}) {
+ const [name, setName] = useState("")
+//  const gameState = useContext(gameContext)
+ const score = correctAnswers *100
 
-  const leaderboardPost = `
-    query {
-      username: ${username},
-      score: ${props.score}
-    }
-  `
+ const submitScore = () => {
+   const scorePost = `
+     mutation createLeaderBoard {
+       createLeaderboard(input: {
+         name: "${name}"
+         score: ${score}
+         category: "${category}"
+         difficulty: "${difficulty}"
+       }) {
+         leaderboard {
+           name
+           score
+           difficulty
+           category
+         }
+         errors
+       }
+     }
+     `
 
-  const updateLeaderboard = () => {
-    fetch("URL", {
-      method: `POST`,
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
+     fetch("https://listen-up-be.herokuapp.com/graphql", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json"
+       },
+       body: JSON.stringify({
+         query: scorePost
+       })
+     })
+     .then(res => res.json())
+     .then(data => {
+       console.log('POSTED', data)
+     })
+     .then(setName(""))
+     .catch(err => console.log(err))
+     
+   }
 
-      })
-    })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error))
-  }
-
-  const handleChange = event => {
-    setUsername(event.target.value)
-  }
-
-  return (
-    <div>
-      <h2>You got props out of 8 questions correct!</h2>
-      <form className="form-container">
-        <input type="text" onChange={handleChange} name="username" placeholder="Enter name here" required value={username}/>
-        <Navlink>Submit</Navlink>
-      </form>
-    </div>
-  )
+ return (
+   <div>
+     <h2>You got {correctAnswers} out of 8 questions correct!</h2>
+     <h3>You got a score of {score}</h3>
+     <form className="form-container">
+       <input type="text" name="username" placeholder="Enter name here" value={name} onChange={e => setName(e.target.value)} autoComplete="off" required />
+       <NavLink to={{pathname: "/", state: {gameEnded: true}}}><button onClick={submitScore} game={true}>Submit</button></NavLink>
+       {/* <Modal show={true} handleClose={handleCloseModal} display={"leader"} /> */}
+     </form>
+   </div>
+ )
 }
 
 export default Endgame

@@ -5,6 +5,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 9001;
 }
   
 .display-block {
@@ -17,11 +18,33 @@
   
 .modal-main {
     background-color: white;
-    height: auto;
     left: 50%;
-    padding: 20px;
+    line-height: 2rem;
+    padding: 32px;
     position: fixed;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 30rem;
 }
+
+.modal-main > h2 {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+}
+
+.close-Btn {
+    float: right;
+    font-size: 2rem;
+}
+
+.close-Btn:hover {
+    cursor: pointer;
+    color: red;
+}
+
+@media screen and (max-width: 600px) {
+    .modal-main {
+        width: 90%;
+    }
+}
+    
