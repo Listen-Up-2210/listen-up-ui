@@ -6,12 +6,16 @@ import Question from '../Question/Question';
 import Category from '../Category/Category'
 import Difficulty from '../Difficulty/Difficulty'
 import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 function App() {
+  const [gameEnded, setGameEnded] = useState(false)
+  
 
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <Routes>
         <Route path="/" element={<Category />}/>
         <Route path="/:category" element={<Difficulty />} />
