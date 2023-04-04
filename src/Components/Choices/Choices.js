@@ -11,8 +11,9 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, addCorrectAnswer}
     e.target.className = 'incorrect'
     setButton(true)
     advanceTurn(e)
-    setTimeout(() => setButton(false), 2000)
-    setTimeout(() => e.target.className = 'base', 2000)
+    setTimeout(() => {
+      e.target.className = 'base' 
+      setButton(false)}, 2500)
   }
 
   const countCorrectGuess = (e) => {
