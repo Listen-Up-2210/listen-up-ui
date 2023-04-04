@@ -3,24 +3,30 @@
   border-radius: 10px;
   border: none;
   width: 20%;
-  /* animation: fadeIn 2s; */
 }
 
 .base[fade='1'] {
-  animation: fadeIn 2.5s 1;
-  /* background-color: black; */
+  animation: fadeIn 1s 1;
 }
 
 .base[fade='2'] {
-  animation: fadeOut 3s 1;
+  animation: fadeOut 2.5s 1;
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0%;
+    transform: scale(0);
+    color: rgb(8, 189, 189);
+  }
+  40% {
+    opacity: 100%;
+    transform: scale(1);
+    color: rgb(8, 189, 189);
   }
   100% {
     opacity: 100%;
+    color: black;
   }
 }
 
@@ -28,8 +34,13 @@
   0% {
     opacity: 100%;
   }
+  70% {
+    opacity: 100%;
+    transform: scale(1);
+  }
   100% {
     opacity: 0%;
+    transform: scale(0);
   }
 }
 
@@ -62,14 +73,16 @@
     background-color: rgb(41, 191, 18);
   }
   65% {
-    transform: translate(0vw, -10vh) scale(1.5) ;
-  }
-  85% {
     transform: translate(0vw, -10vh) scale(1.5) rotate(360deg);
   }
-  100% {
+  85% {
     background-color: rgb(41, 191, 18);
     transform: rotate(360deg);
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+    transform: rotate(360deg) scale(0);
   }
 }
 
@@ -104,7 +117,6 @@
   width: 85%;
   height: 10%;
 }
-
 
 .card {
   height: 100%;

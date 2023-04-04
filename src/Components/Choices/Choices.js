@@ -4,7 +4,6 @@ import './Choices.css'
 const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, addCorrectAnswer}) => {
 
   const [button, setButton] = useState(false)
-  // const [buttonStyle, setButtonStyle] = useState('base')
   const [fade, setFade] = React.useState(1)
 
   const checkAnswer = (e) => {
@@ -16,7 +15,7 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, addCorrectAnswer}
     setFade(2)
     setTimeout(() => {
       e.target.className = 'base'
-      // setButtonStyle('base')
+
       setFade(1)
       setButton(false)}, 2500)
   }
@@ -31,7 +30,6 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, addCorrectAnswer}
     return (
       <button onClick={(e) => checkAnswer(e)}
         className='base'
-        // onAnimationEnd={() => setFade(0)}
         fade={fade}
         id={index}
         key={index}
