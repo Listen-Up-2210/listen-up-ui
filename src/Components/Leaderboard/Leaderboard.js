@@ -28,7 +28,6 @@ const Leaderboard = ({ handleClose }) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log('leaderboard', data)
             setLeaderboard(data.data.leaderboards)
         })
         .catch(err => console.log(err))
