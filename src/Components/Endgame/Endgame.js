@@ -6,9 +6,9 @@ import Modal from "../Modal/Modal";
 
 function Endgame({correctAnswers, category, difficulty}) {
  const [name, setName] = useState("")
+ const score = correctAnswers *100
 
  const submitScore = () => {
-  const score = correctAnswers *100
    const scorePost = `
      mutation createLeaderBoard {
        createLeaderboard(input: {
@@ -48,7 +48,8 @@ function Endgame({correctAnswers, category, difficulty}) {
 
  return (
    <div>
-     <h2>You got props out of 8 questions correct!</h2>
+     <h2>You got ${correctAnswers} out of 8 questions correct!</h2>
+     <h3>You got a score of ${score}</h3>
      <form className="form-container">
        <input type="text" name="username" placeholder="Enter name here" value={name} onChange={e => setName(e.target.value)} autoComplete="off" required />
        <NavLink to={{pathname: "/", state: {gameEnded: true}}}><button onClick={submitScore}>Submit</button></NavLink>
