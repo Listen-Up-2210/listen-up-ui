@@ -49,8 +49,9 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
   
   return (
     <div>
-      {(!deckID && !error) && <p>Loading...</p>}
-      {deckID && <Question deckID={deckID}/>}
+      {/* {(!deckID && !error) && <p>Loading...</p>}
+      {(!deckID===0) && <Question deckID={deckID}/>} */}
+      {deckID ? <Question deckID={deckID}/> : <h2>Loading</h2>}
       {error && <ErrorDisplay errorCode={'500'} />}
     </div>
   )
