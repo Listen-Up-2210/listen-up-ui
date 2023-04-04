@@ -74,3 +74,10 @@
 		transform: rotate(0deg) scale(1.1);
 	}
 }
+
+@media screen and (max-width:600px) {
+	.difficulty-link {
+		font-size:xx-large;
+		width: 90%;
+	}
+}
