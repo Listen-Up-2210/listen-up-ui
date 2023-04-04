@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import './Endgame.css'
 import { NavLink } from 'react-router-dom'
+import Modal from "../Modal/Modal";
 
 function Endgame({score, category, difficulty}) {
   const [name, setName] = useState("")
@@ -54,6 +55,7 @@ function Endgame({score, category, difficulty}) {
       <form className="form-container">
         <input type="text" name="username" placeholder="Enter name here" value={name} onChange={e => setName(e.target.value)} autoComplete="off" required />
         <NavLink to="/"><button onClick={submitScore}>Submit</button></NavLink>
+        {/* <Modal show={true} handleClose={handleCloseModal} display={"leader"} /> */}
       </form>
     </div>
   )
