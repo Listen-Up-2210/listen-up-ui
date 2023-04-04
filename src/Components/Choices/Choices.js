@@ -15,7 +15,6 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, addCorrectAnswer}
     setFade(2)
     setTimeout(() => {
       e.target.className = 'base'
-
       setFade(1)
       setButton(false)}, 2500)
   }
@@ -26,7 +25,6 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, addCorrectAnswer}
   }
 
   const answerButtons = shuffledAnswers.map((answer, index) => {
-    console.log(fade)
     return (
       <button onClick={(e) => checkAnswer(e)}
         className='base'
