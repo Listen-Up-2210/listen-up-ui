@@ -3,6 +3,7 @@ import "./Question.css"
 import Audio from '../Audio/Audio'
 import Choices from "../Choices/Choices";
 import EndGame from "../EndGame/EndGame";
+import Loading from "../Loading/Loading";
 
 const Question = ({ deckID }) => {
 
@@ -10,6 +11,7 @@ const Question = ({ deckID }) => {
   const [card,setCard] = useState({})
   const [correctAnswers, setCorrectAnswers] = useState(0)
   const [answers, setAnswers] = useState([])
+  const [loading,setLoading] = useState(true)
 
   const advanceTurn = (e) => {
     e.preventDefault()
@@ -49,15 +51,18 @@ const Question = ({ deckID }) => {
       const answers = [...newCard.wrongAnswers, newCard.correctAnswer]
       const shuffledAnswers = answers.sort(() => Math.random() - .5)
       setAnswers(shuffledAnswers)
+      setLoading(false)
     })
     .catch(err => console.log(err))
   }, [deckID, turn])
 
   return (
+  <div className="loading-container">
+    {(loading) ? <Loading /> : 
     <div className="game-container">
       {turn < 9 ? 
       <div className='card' key={card.id}>
-        <h2 className='turn-count'>Question: {turn} / 8</h2>
+        <h3 className='turn-count'>Question: {turn} / 8</h3>
         <Audio audioURL={card.link} />
         <Choices
           advanceTurn={advanceTurn} 
@@ -69,6 +74,8 @@ const Question = ({ deckID }) => {
       <EndGame correctAnswers={correctAnswers}/>
     }
     </div>
+    }
+  </div>
   )
 }
 
