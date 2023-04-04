@@ -12,28 +12,33 @@
 }
 
 .correct {
-  background-color: rgb(41, 191, 18);
+  background-color: rgb(8, 189, 189);
   border-radius: 10px;
   border: none;
   width: 20%;
-  animation: jiggle 1s infinite;
+  animation: jiggle 3s;
 }
 
 @keyframes jiggle {
-  15% {
-    transform: scale(1.1) rotate(15deg);
+  0% {
+    background-color: rgb(8, 189, 189);
   }
-  30% {
-    transform: scale(1.1) rotate(-15deg);
+  40% {
+    background-color: rgb(8, 189, 189);
   }
-  45% {
-    transform: scale(1.1) rotate(15deg);
+  50% {
+    transform: translate(0vw, -10vh) scale(1.5);
+    background-color: rgb(41, 191, 18);
   }
-  60% {
-    transform: scale(1.1) rotate(-15deg);
+  65% {
+    transform: translate(0vw, -10vh) scale(1.5) ;
+  }
+  85% {
+    transform: translate(0vw, -10vh) scale(1.5) rotate(360deg);
   }
   100% {
-    transform: scale(1.1)
+    background-color: rgb(41, 191, 18);
+    transform: rotate(360deg);
   }
 }
 

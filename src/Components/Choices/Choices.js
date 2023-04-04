@@ -13,7 +13,7 @@ const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, addCorrectAnswer}
     advanceTurn(e)
     setTimeout(() => {
       e.target.className = 'base' 
-      setButton(false)}, 2500)
+      setButton(false)}, 3000)
   }
 
   const countCorrectGuess = (e) => {
