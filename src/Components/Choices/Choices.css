@@ -1,9 +1,40 @@
-
 .base {
   background-color: rgb(8, 189, 189);
   border-radius: 10px;
   border: none;
   width: 20%;
+  /* animation: fadeIn 2s; */
+}
+
+.base[fade='1'] {
+  animation: fadeIn 2.5s 1;
+  /* background-color: black; */
+}
+
+.base[fade='2'] {
+  animation: fadeOut 3s 1;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+
+.fadeOut {
+  background-color: black;
 }
 
 .base:hover {
@@ -16,7 +47,7 @@
   border-radius: 10px;
   border: none;
   width: 20%;
-  animation: jiggle 3s;
+  animation: jiggle 2.5s;
 }
 
 @keyframes jiggle {
@@ -47,7 +78,7 @@
   border-radius: 10px;
   border: none;
   width: 20%;
-  animation: drop 3s;
+  animation: drop 2.5s;
 }
 
 @keyframes drop {

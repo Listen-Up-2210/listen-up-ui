@@ -16,7 +16,7 @@ const Question = ({ deckID }) => {
 
   const advanceTurn = (e) => {
     e.preventDefault()
-    setTimeout(() => setTurn(turn + 1), 3000)
+    setTimeout(() => setTurn(turn + 1), 2000)
   }
 
   const addCorrectAnswer = () => {
