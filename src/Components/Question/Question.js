@@ -63,7 +63,7 @@ const Question = ({ deckID }) => {
     <div className="game-container">
       {turn < 9 ? 
       <div className='card' key={card.id}>
-        <h3 className='turn-count'>Question: {turn} / 8</h3>
+        <h2 className='turn-count'>Question: {turn} / 8</h2>
         <Audio audioURL={card.link} />
         <Choices
           advanceTurn={advanceTurn} 
