@@ -24,7 +24,6 @@ const Question = ({ deckID }) => {
   }
 
   useEffect(() => {
-    console.log('use effect')
     const cardQuery = `
     query {
         soundCard(deckId: ${deckID}) {
