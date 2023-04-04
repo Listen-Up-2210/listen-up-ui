@@ -43,6 +43,7 @@ function Endgame({score, category, difficulty}) {
       .then(data => {
         console.log('POSTED', data)
       })
+      .then(setName(""))
       .catch(err => console.log(err))
     }
 
@@ -52,7 +53,7 @@ function Endgame({score, category, difficulty}) {
       <h2>You got props out of 8 questions correct!</h2>
       <form className="form-container">
         <input type="text" name="username" placeholder="Enter name here" value={name} onChange={e => setName(e.target.value)} autoComplete="off" required />
-        <NavLink><button onClick={submitScore}>Submit</button></NavLink>
+        <NavLink to="/"><button onClick={submitScore}>Submit</button></NavLink>
       </form>
     </div>
   )
