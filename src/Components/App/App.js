@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Game from '../Game/Game'
 import Header from '../Header/Header';
@@ -9,20 +10,26 @@ import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
+const gameContext = React.createContext('false')
+
 function App() {
-  const [gameEnded, setGameEnded] = useState(false)
-  
+  let location = useLocation();
+  console.log(location)
+  // const [gameEnded, setGameEnded] = useState(false)
+  const gameState = false
 
   return (
-    <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Category />}/>
-        <Route path="/:category" element={<Difficulty />} />
-        <Route path="/:category/:difficulty" element={<Game />} />
-        <Route path="/404" element={<ErrorDisplay errorCode="404" />} /> 
-      </Routes>
-    </div>
+    <gameContext.Provider value={gameState}>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Category />}/>
+          <Route path="/:category" element={<Difficulty />} />
+          <Route path="/:category/:difficulty" element={<Game />} />
+          <Route path="/404" element={<ErrorDisplay errorCode="404" />} /> 
+        </Routes>
+      </div>
+    </gameContext.Provider>
   );
 }
 
