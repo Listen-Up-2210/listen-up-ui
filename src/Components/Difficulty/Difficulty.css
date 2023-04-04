@@ -74,7 +74,7 @@
 	}
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 700px) {
 	.difficulty-link
 	{
 		border: .2em solid;
