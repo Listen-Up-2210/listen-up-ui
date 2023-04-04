@@ -4,7 +4,7 @@ import './Choices.css'
 const Choices = ({correctAnswer, shuffledAnswers, advanceTurn, addCorrectAnswer}) => {
 
   const [button, setButton] = useState(false)
-  const [fade, setFade] = React.useState(1)
+  const [fade, setFade] = useState(1)
 
   const checkAnswer = (e) => {
     e.preventDefault()
