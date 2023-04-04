@@ -49,7 +49,6 @@ const Leaderboard = ({ handleClose }) => {
                 <h2>Leaderboard Content</h2>
                 <IoCloseSharp className='close-Btn' onClick={handleClose} />
             </div>
-            {/* <p>This is the content of the modal.</p> */}
             <table>
                 <thead>
                     <tr>
