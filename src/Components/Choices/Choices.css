@@ -16,10 +16,29 @@
   border-radius: 10px;
   border: none;
   width: 20%;
+  animation: jiggle 1s infinite;
+}
+
+@keyframes jiggle {
+  15% {
+    transform: scale(1.1) rotate(15deg);
+  }
+  30% {
+    transform: scale(1.1) rotate(-15deg);
+  }
+  45% {
+    transform: scale(1.1) rotate(15deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(-15deg);
+  }
+  100% {
+    transform: scale(1.1)
+  }
 }
 
 .incorrect {
-  background-color: rgb(242, 27, 63);
+  background-color: rgb(8, 189, 189);
   border-radius: 10px;
   border: none;
   width: 20%;
@@ -27,7 +46,18 @@
 }
 
 @keyframes drop {
+  0% {
+    background-color: rgb(8, 189, 189);
+  }
+  40% {
+    background-color: rgb(8, 189, 189);
+  }
+  50% {
+    transform: translate(0vw, -10vh) scale(1.5);
+    background-color: rgb(242, 27, 63);
+  }
   100% {
+    background-color: rgb(242, 27, 63);
     transform: translate(5vw, 100vh) rotate(180deg);
   }
 }
