@@ -50,7 +50,7 @@
 	}
 }
 
-@media screen and (max-width:450px) {
+@media screen and (max-width:600px) {
 	.category-link {
 		font-size:xx-large;
 		width: 90%;

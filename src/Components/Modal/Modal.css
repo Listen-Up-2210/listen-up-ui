@@ -19,11 +19,11 @@
     background-color: white;
     left: 50%;
     line-height: 2rem;
-    width: 30rem;
     padding: 32px;
     position: fixed;
     top: 50%;
     transform: translate(-50%, -50%);
+    width: 30rem;
 }
 
 .modal-main > h2 {
@@ -36,7 +36,7 @@
     font-size: 2rem;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 600px) {
     .modal-main {
         width: 90%;
     }
