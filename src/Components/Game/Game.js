@@ -45,8 +45,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
       setDeckID(data.data.createDeck.deck.id)
     })
     .catch(err => {
-      console.log('error', err)
-      setError(true)})
+      setError(err)})
   }, [])
   
   return (
