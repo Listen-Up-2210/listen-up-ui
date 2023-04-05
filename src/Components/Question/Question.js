@@ -61,7 +61,7 @@ const Question = ({ deckID }) => {
   return (
   <div className="loading-container">
     {error 
-    ? <ErrorDisplay errorCode={'500'} /> 
+    ? <ErrorDisplay errorCode='500' /> 
     : (loading) ? <Loading /> : 
     <div className="game-container">
       {turn < 9 ? 
