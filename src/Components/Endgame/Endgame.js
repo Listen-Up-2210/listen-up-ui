@@ -1,15 +1,17 @@
-import React, { useState, useEffect, useContext} from "react";
+import React, { useState, useContext} from "react";
 import './Endgame.css'
 import { NavLink } from 'react-router-dom'
-import Modal from "../Modal/Modal";
+import { setGameContext } from "../App/App";
 
 
 function Endgame({correctAnswers, category, difficulty}) {
  const [name, setName] = useState("")
-//  const gameState = useContext(gameContext)
- const score = correctAnswers *100
+ const setGameEnded = useContext(setGameContext)
+
+ const score = correctAnswers * 100
 
  const submitScore = () => {
+
    const scorePost = `
      mutation createLeaderBoard {
        createLeaderboard(input: {
@@ -39,12 +41,9 @@ function Endgame({correctAnswers, category, difficulty}) {
        })
      })
      .then(res => res.json())
-     .then(data => {
-       console.log('POSTED', data)
-     })
      .then(setName(""))
+     .then(setGameEnded(true))
      .catch(err => console.log(err))
-     
    }
 
  return (
@@ -53,8 +52,7 @@ function Endgame({correctAnswers, category, difficulty}) {
      <h3>You got a score of {score}</h3>
      <form className="form-container">
        <input type="text" name="username" placeholder="Enter name here" value={name} onChange={e => setName(e.target.value)} autoComplete="off" required />
-       <NavLink to={{pathname: "/", state: {gameEnded: true}}}><button onClick={submitScore} game={true}>Submit</button></NavLink>
-       {/* <Modal show={true} handleClose={handleCloseModal} display={"leader"} /> */}
+       <NavLink to="/"><button onClick={submitScore}>Submit</button></NavLink>
      </form>
    </div>
  )
