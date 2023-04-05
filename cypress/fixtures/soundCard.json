@@ -1,0 +1,14 @@
+{  
+  "data": {
+    "soundCard":  {  
+      "category": "Animals",
+      "correctAnswer": "Cicada",
+      "link": "https://cdn.freesound.org/previews/515/515053_9250976-hq.mp3",
+      "wrongAnswers": [
+        "cricket",
+        "locust",
+        "monkey"
+      ]
+    }
+  }
+}
