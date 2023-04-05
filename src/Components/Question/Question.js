@@ -63,7 +63,7 @@ const Question = ({ deckID }) => {
   <div className="loading-container">
     {(loading) ? <Loading /> : 
     <div className="game-container">
-      {turn < 3 ? 
+      {turn < 9 ? 
       <div className='card' key={card.id}>
         <h2 className='turn-count'>Question: {turn} / 8</h2>
         <Audio audioURL={card.link} />
