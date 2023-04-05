@@ -53,7 +53,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     <div className="question-container">
       {error 
       ? <ErrorDisplay errorCode='500' /> 
-      : deckID ? <Question deckID={deckID}/> : <Loading/>}
+      : deckID ? <Question deckID={deckID} difficulty={location[2]}/> : <Loading/>}
     </div>
   )
  }
