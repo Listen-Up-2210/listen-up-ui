@@ -1,0 +1,13 @@
+{
+    "data": {
+        "createLeaderboard": {
+            "leaderboard": {
+                "name": "Hugh Jass",
+                "score": 800,
+                "difficulty": "Hard",
+                "category": "Animals"
+            },
+            "errors": []
+        }
+    }
+}
