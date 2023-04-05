@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Question.css";
 import Audio from '../Audio/Audio'
 import Choices from "../Choices/Choices";
+import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 import Endgame from "../Endgame/Endgame";
 import Loading from "../Loading/Loading";
 import { useLocation } from "react-router";
@@ -12,6 +13,7 @@ const Question = ({ deckID }) => {
   const [card,setCard] = useState({})
   const [correctAnswers, setCorrectAnswers] = useState(0)
   const [answers, setAnswers] = useState([])
+  const [error, setError] = useState('')
   const [loading,setLoading] = useState(true)
 
   let location = useLocation().pathname.split("/")
@@ -55,12 +57,14 @@ const Question = ({ deckID }) => {
       setAnswers(shuffledAnswers)
       setLoading(false)
     })
-    .catch(err => console.log(err))
+    .catch(err => setError(err))
   }, [deckID, turn])
 
   return (
   <div className="loading-container">
-    {(loading) ? <Loading /> : 
+    {error 
+    ? <ErrorDisplay errorCode='500' /> 
+    : (loading) ? <Loading /> : 
     <div className="game-container">
       {turn < 9 ? 
       <div className='card' key={card.id}>

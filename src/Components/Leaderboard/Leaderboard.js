@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {IoCloseSharp} from 'react-icons/io5'
+import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 import './Leaderboard.css'
 
 const Leaderboard = ({ handleClose }) => {
     const [leaderboard, setLeaderboard] = useState([]);
+    const [error, setError] = useState('')
 
     useEffect(() => {
         const leaderboardQuery = `
@@ -30,7 +32,7 @@ const Leaderboard = ({ handleClose }) => {
         .then(data => {
             setLeaderboard(data.data.leaderboards)
         })
-        .catch(err => console.log(err))
+        .catch(err => setError(err))
       }, [])
 
       const scoreboard = leaderboard.map((obj, index) => {
@@ -48,17 +50,20 @@ const Leaderboard = ({ handleClose }) => {
                 <h2>Leaderboard Content</h2>
                 <IoCloseSharp className='close-Btn' onClick={handleClose} />
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {scoreboard}
-                </tbody>
-            </table>
+            {error ? <ErrorDisplay errorCode='500' /> :
+              <table>
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Score</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {scoreboard}
+              </tbody>
+          </table>
+            }
+
         </section>
     )
 }

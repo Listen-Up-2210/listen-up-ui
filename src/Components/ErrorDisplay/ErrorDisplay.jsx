@@ -21,7 +21,7 @@ function ErrorDisplay(props) {
         <div className="error-display">
             <h1>{`Error ${error}`}</h1>
             <p>{errorMessage}</p>
-            <Link className="return-link" to='/'>Home</Link>
+            {(Number(error) >= 400 && Number(error) < 500) && <Link className="return-link" to='/'>Home</Link>}
         </div>
     )
 }
