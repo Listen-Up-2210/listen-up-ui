@@ -1,6 +1,14 @@
+import { aliasQuery } from '../utils/graphql-test-utils'
+
 describe('template spec', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/')
+    cy.intercept('POST', 'https://listen-up-be.herokuapp.com/graphql', (req) => {
+      aliasQuery(req, 'getLeaderboards')
+      req.reply(
+        {fixture:'leaderboard.json'}
+      )
+    })
   })
   
   it('should have an instruction modal visible on-load', () => {
@@ -18,11 +26,11 @@ describe('template spec', () => {
     .children()
     .find('li')
     .should('have.length', 3)
-    .get('.step-1')
+    .get('[data-cy="step-1"]')
     .should('contain', 'Choose a category of sounds that you want to play with.')
-    .get('.step-2')
+    .get('[data-cy="step-2"]')
     .should('contain', 'Choose a difficulty level that you are comfortable with.')
-    .get('.step-3')
+    .get('[data-cy="step-3"]')
     .should('contain', 'After you have guessed all eight sounds, your score will be displayed.')
   })
 
@@ -31,11 +39,11 @@ describe('template spec', () => {
     .find('ul')
     .children()
     .should('have.length', 3)
-    .get('.ex-easy')
+    .get('[data-cy="easy"]')
     .should('contain', 'Easy: 3 guesses per sound')
-    .get('.ex-medium')
+    .get('[data-cy="medium"]')
     .should('contain', 'Medium: 2 guesses per sound')
-    .get('.ex-hard')
+    .get('[data-cy="hard"]')
     .should('contain', 'Hard: 1 guess per sound')
   })
 
@@ -84,8 +92,20 @@ describe('template spec', () => {
     cy.get('.modal-icons-container')
       .get('img[alt="leaderboard"]')
       .click()
-    cy.get('.modal-main > h2')
+    cy.get('.modal-header > h2')
       .should('contain', 'Leaderboard Content')
+  })
+
+  it("should display users in the leaderboard", () => {
+    cy.get('.close-Btn')
+      .click()
+    cy.get('.modal-icons-container')
+      .get('img[alt="leaderboard"]')
+      .click() 
+    cy.get('tbody')
+    .should('contain', 'Lance Lyde')
+    .should('contain', 'Hammond Eggs')
+    .should('contain', 'Tom Katz')
   })
 
   it('should have four categories displayed',() => {
