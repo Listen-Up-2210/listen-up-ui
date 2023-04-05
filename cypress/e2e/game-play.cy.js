@@ -13,7 +13,7 @@ describe('template spec', () => {
     })
   })
 
-  it.skip('should allow the user to play all 8 questions and then display a score', () => {
+  it('should allow the user to play all 8 questions and then display a score', () => {
     cy.get('.turn-count').should('contain', 'Question: 1 / 8')
     cy.get('button')
       .filter(':contains("Cicada")')
@@ -61,4 +61,5 @@ describe('template spec', () => {
       .filter(':contains("Cicada")')
       .click()
   })
+
 })
