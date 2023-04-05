@@ -19,7 +19,7 @@ const Audio = ({audioURL, difficulty, turn}) => {
   },[turn])
 
   const handleAudioClick = () => {
-    if (audioClicks > 0){
+    if (audioClicks > 1){
       setAudioClicks(audioClicks-1)
       console.log("bruh")
     } else {
