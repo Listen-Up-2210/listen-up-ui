@@ -21,7 +21,6 @@ const Audio = ({audioURL, difficulty, turn}) => {
   const handleAudioClick = () => {
     if (audioClicks > 1){
       setAudioClicks(audioClicks-1)
-      console.log("bruh")
     } else {
       setDisable("hide")
     }
