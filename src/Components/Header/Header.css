@@ -3,6 +3,7 @@
   background-color: #fff;
   border-bottom: solid black 1px;
   display: flex;
+  height: 14vh;
   justify-content: flex-end;
   position: relative;
   width: 100%;
