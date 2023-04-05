@@ -7,7 +7,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 
  function Game()  {
   const [deckID,setDeckID] = useState(0)
-  const [error, setError] = useState(false)
+  const [error, setError] = useState('')
   const categories = ['animals', 'instruments', 'machines', 'misc']
   const difficulties = ['easy', 'medium', 'hard']
   const navigate = useNavigate()
