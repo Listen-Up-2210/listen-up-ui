@@ -55,12 +55,14 @@ const Question = ({ deckID }) => {
       setAnswers(shuffledAnswers)
       setLoading(false)
     })
-    .catch(err => console.log(err))
+    .catch(err => setError(err))
   }, [deckID, turn])
 
   return (
   <div className="loading-container">
-    {(loading) ? <Loading /> : 
+    {error 
+    ? <ErrorDisplay errorCode={'500'} /> 
+    : (loading) ? <Loading /> : 
     <div className="game-container">
       {turn < 9 ? 
       <div className='card' key={card.id}>
