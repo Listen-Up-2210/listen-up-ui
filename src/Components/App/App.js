@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState, createContext } from 'react';
 import './App.css';
-import Game from '../Game/Game'
+import Game from '../Game/Game';
 import Header from '../Header/Header';
-import {Route, Routes} from 'react-router-dom'
-import Category from '../Category/Category'
-import Difficulty from '../Difficulty/Difficulty'
-import ErrorDisplay from '../ErrorDisplay/ErrorDisplay'
-import { useState } from 'react';
+import {Route, Routes} from 'react-router-dom';
+import Category from '../Category/Category';
+import Difficulty from '../Difficulty/Difficulty';
+import ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 
-export const gameContext = React.createContext()
-export const setGameContext = React.createContext()
+
+export const gameContext = createContext()
+export const setGameContext = createContext()
 
 function App() {
   const [gameEnded, setGameEnded] = useState(false)
