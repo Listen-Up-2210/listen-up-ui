@@ -15,14 +15,14 @@ const Modal = ({ show, handleClose, display }) => {
                 <IoCloseSharp className='close-Btn' onClick={handleClose} />
                 <h2>How To Play</h2>
                 <ol>
-                    <li>Choose a category of sounds that you want to play with.</li>
-                    <li>Choose a difficulty level that you are comfortable with.</li>
+                    <li data-cy="step-1">Choose a category of sounds that you want to play with.</li>
+                    <li data-cy="step-2">Choose a difficulty level that you are comfortable with.</li>
                         <ul>
-                            <li>Easy: 3 guesses per sound</li>
-                            <li>Medium: 2 guesses per sound</li>
-                            <li>Hard: 1 guess per sound</li>
+                            <li data-cy="easy">Easy: 3 guesses per sound</li>
+                            <li data-cy="medium">Medium: 2 guesses per sound</li>
+                            <li data-cy="hard">Hard: 1 guess per sound</li>
                         </ul>
-                    <li>After you have guessed all eight sounds, your score will be displayed.</li>
+                    <li data-cy="step-3">After you have guessed all eight sounds, your score will be displayed.</li>
                 </ol>
             </section>
         }
