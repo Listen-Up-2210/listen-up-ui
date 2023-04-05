@@ -1,64 +1,61 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useContext} from "react";
 import './Endgame.css'
 import { NavLink } from 'react-router-dom'
-import Modal from "../Modal/Modal";
-
-function Endgame({score, category, difficulty}) {
-  const [name, setName] = useState("")
-
-  // const handleChange = (e) => {
-  //   console.log("handleChange", e.target.value)
-  //   setName([e.target.name], e.target.value)
-  // }
-
-  const submitScore = () => {
-    const scorePost = `
-      mutation createLeaderBoard {
-        createLeaderboard(input: {
-          name: "${name}"
-          score: ${score}
-          category: "${category}"
-          difficulty: "${difficulty}"
-        }) {
-          leaderboard {
-            name
-            score
-            difficulty
-            category
-          }
-          errors
-        }
-      }
-      `
-
-      fetch("https://listen-up-be.herokuapp.com/graphql", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          query: scorePost
-        })
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log('POSTED', data)
-      })
-      .then(setName(""))
-      .catch(err => console.log(err))
-    }
+import { setGameContext } from "../App/App";
 
 
-  return (
-    <div>
-      <h2>You got props out of 8 questions correct!</h2>
-      <form className="form-container">
-        <input type="text" name="username" placeholder="Enter name here" value={name} onChange={e => setName(e.target.value)} autoComplete="off" required />
-        <NavLink to="/"><button onClick={submitScore}>Submit</button></NavLink>
-        {/* <Modal show={true} handleClose={handleCloseModal} display={"leader"} /> */}
-      </form>
-    </div>
-  )
+function Endgame({correctAnswers, category, difficulty}) {
+ const [name, setName] = useState("")
+ const setGameEnded = useContext(setGameContext)
+
+ const score = correctAnswers * 100
+
+ const submitScore = () => {
+
+   const scorePost = `
+     mutation createLeaderBoard {
+       createLeaderboard(input: {
+         name: "${name}"
+         score: ${score}
+         category: "${category}"
+         difficulty: "${difficulty}"
+       }) {
+         leaderboard {
+           name
+           score
+           difficulty
+           category
+         }
+         errors
+       }
+     }
+     `
+
+     fetch("https://listen-up-be.herokuapp.com/graphql", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json"
+       },
+       body: JSON.stringify({
+         query: scorePost
+       })
+     })
+     .then(res => res.json())
+     .then(setName(""))
+     .then(setGameEnded(true))
+     .catch(err => console.log(err))
+   }
+
+ return (
+   <div>
+     <h2>You got {correctAnswers} out of 8 questions correct!</h2>
+     <h3>You got a score of {score}</h3>
+     <form className="form-container">
+       <input type="text" name="username" placeholder="Enter name here" value={name} onChange={e => setName(e.target.value)} autoComplete="off" required />
+       <NavLink to="/"><button onClick={submitScore}>Submit</button></NavLink>
+     </form>
+   </div>
+ )
 }
 
 export default Endgame

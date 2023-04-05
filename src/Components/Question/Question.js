@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./Question.css"
+import "./Question.css";
 import Audio from '../Audio/Audio'
 import Choices from "../Choices/Choices";
-import EndGame from "../EndGame/EndGame";
+import Endgame from "../Endgame/Endgame";
 import Loading from "../Loading/Loading";
-
+import { useLocation } from "react-router";
 
 const Question = ({ deckID }) => {
 
@@ -13,6 +13,8 @@ const Question = ({ deckID }) => {
   const [correctAnswers, setCorrectAnswers] = useState(0)
   const [answers, setAnswers] = useState([])
   const [loading,setLoading] = useState(true)
+
+  let location = useLocation().pathname.split("/")
 
   const advanceTurn = (e) => {
     e.preventDefault()
@@ -24,7 +26,6 @@ const Question = ({ deckID }) => {
   }
 
   useEffect(() => {
-    console.log('use effect')
     const cardQuery = `
     query {
         soundCard(deckId: ${deckID}) {
@@ -72,7 +73,7 @@ const Question = ({ deckID }) => {
           addCorrectAnswer={addCorrectAnswer}
           />
       </div> :
-      <EndGame correctAnswers={correctAnswers}/>
+      <Endgame correctAnswers={correctAnswers} category={location[1]} difficulty={location[2]}/>
     }
     </div>
     }
