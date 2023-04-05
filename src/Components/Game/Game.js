@@ -7,7 +7,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 
  function Game()  {
   const [deckID,setDeckID] = useState(0)
-  const [error, setError] = useState('')
+  const [error, setError] = useState(false)
   const categories = ['animals', 'instruments', 'machines', 'misc']
   const difficulties = ['easy', 'medium', 'hard']
   const navigate = useNavigate()
@@ -45,15 +45,16 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
       setDeckID(data.data.createDeck.deck.id)
     })
     .catch(err => {
-      console.log(err)
-      setError(err)})
+      console.log('error', err)
+      setError(true)})
   }, [])
   
   return (
     <div className="question-container">
-      {error 
+      {/* {error 
       ? <ErrorDisplay errorCode='500' /> 
-      : deckID ? <Question deckID={deckID} difficulty={location[2]}/> : <Loading/>}
+      :  */}
+      {deckID ? <Question deckID={deckID} difficulty={location[2]}/> : <Loading/>}
     </div>
   )
  }

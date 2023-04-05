@@ -32,7 +32,9 @@ const Leaderboard = ({ handleClose }) => {
         .then(data => {
             setLeaderboard(data.data.leaderboards)
         })
-        .catch(err => setError(err))
+        .catch(err => {
+          console.log('leaderboard', err)
+          setError(err)})
       }, [])
 
       const scoreboard = leaderboard.map((obj, index) => {
