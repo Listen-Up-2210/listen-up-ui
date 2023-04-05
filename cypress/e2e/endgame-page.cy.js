@@ -36,6 +36,7 @@ describe('template spec', () => {
     cy.get('input')
       .type('Hugh Jass')
     cy.get('button')
+      .should('contain', 'Submit')
       .click()
     cy.url()
       .should('eq','http://localhost:3000/')
@@ -44,6 +45,12 @@ describe('template spec', () => {
         req.reply(
           {fixture:'newScoreEntry.json'}
         )
-      })
+    })
+    cy.intercept('POST', 'https://listen-up-be.herokuapp.com/graphql', (req) => {
+      aliasQuery(req, 'getLeaderboards')
+      req.reply(
+        {fixture:'leaderboard.json'}
+      )
+    })
   })
 })
