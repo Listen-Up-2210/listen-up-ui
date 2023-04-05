@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./Question.css"
+import "./Question.css";
 import Audio from '../Audio/Audio'
 import Choices from "../Choices/Choices";
 import Endgame from "../Endgame/Endgame";
-import Loading from "../Loading/Loading"
+import Loading from "../Loading/Loading";
 import { useLocation } from "react-router";
 
 const Question = ({ deckID }) => {
