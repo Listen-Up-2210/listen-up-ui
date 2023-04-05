@@ -1,19 +1,27 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import {useLocation} from 'react-router-dom'
 import "./Header.css"
 import Modal from "../Modal/Modal";
 import instructionIcon from "../../instructions-icon.png"
 import leaderboardIcon from "../../leaderboard-icon.png"
+import { gameContext, setGameContext } from '../App/App';
 
 export default function Header() {
     const [showModal, setShowModal] = useState(undefined);
     const [modalContent, setModalContent] = useState('')
 
     let location = useLocation()
+    const gameEnded = useContext(gameContext)
+    const setGameEnded = useContext(setGameContext)
+
 
     useEffect(()=>{
+      if(gameEnded){
+        setModalContent("leader")
+        setGameEnded(false)
+      }
       setShowModal(location.pathname === "/")
-    },[])
+    },[gameEnded])
 
     const handleShowModal = (content) => {
       setShowModal(true);
