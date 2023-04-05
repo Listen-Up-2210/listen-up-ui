@@ -33,7 +33,6 @@ const Leaderboard = ({ handleClose }) => {
             setLeaderboard(data.data.leaderboards)
         })
         .catch(err => {
-          console.log('leaderboard', err)
           setError(err)})
       }, [])
 

@@ -58,7 +58,6 @@ const Question = ({ deckID, difficulty }) => {
       setLoading(false)
     })
     .catch(err => {
-      console.log('question', err)
       setError(err)
     })
   }
