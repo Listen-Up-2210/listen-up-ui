@@ -1,3 +1,5 @@
+import { aliasQuery, aliasMutation } from '../utils/graphql-test-utils'
+
 describe('template spec', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000/animals')
@@ -30,10 +32,15 @@ describe('template spec', () => {
   })
 
   it('should be able to open & close the leaderboard modal', () => {
-    cy.intercept('POST', 'https://listen-up-be.herokuapp.com/graphql', {fixture: "leaderboard"})
+    cy.intercept('POST', 'https://listen-up-be.herokuapp.com/graphql', (req) => {
+      aliasQuery(req, 'getLeaderboards')
+      req.reply(
+        {fixture:'leaderboard.json'}
+      )
+    })
     cy.get('img[alt="leaderboard"]')
       .click()
-    cy.get('[data-cy="leaderboard-header"]')
+    cy.get('.modal-header')
       .should('contain', 'Leaderboard Content')
     cy.get('.close-Btn')
       .click()
