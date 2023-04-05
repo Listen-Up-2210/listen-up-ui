@@ -44,8 +44,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     .then(data => {
       setDeckID(data.data.createDeck.deck.id)
     })
-    .catch(err => {
-      setError(err)})
+    .catch(err => setError(err))
   }, [])
   
   return (

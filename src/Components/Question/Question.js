@@ -57,9 +57,7 @@ const Question = ({ deckID, difficulty }) => {
       setAnswers(shuffledAnswers)
       setLoading(false)
     })
-    .catch(err => {
-      setError(err)
-    })
+    .catch(err => setError(err))
   }
   }, [deckID, turn])
 
