@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import "./Game.css"
 import Question from '../Question/Question'
+import Loading from '../Loading/Loading'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 
@@ -10,6 +11,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
   const categories = ['animals', 'instruments', 'machines', 'misc']
   const difficulties = ['easy', 'medium', 'hard']
   const navigate = useNavigate()
+
   let location = useLocation().pathname.split("/")
 
   useEffect(() => {
@@ -48,10 +50,10 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
   }, [])
   
   return (
-    <div>
+    <div className="question-container">
       {/* {(!deckID && !error) && <p>Loading...</p>}
       {(!deckID===0) && <Question deckID={deckID}/>} */}
-      {deckID ? <Question deckID={deckID}/> : <h2>Loading</h2>}
+      {deckID ? <Question deckID={deckID}/> : <Loading/>}
       {error && <ErrorDisplay errorCode={'500'} />}
     </div>
   )

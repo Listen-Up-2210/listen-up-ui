@@ -1,0 +1,47 @@
+.leader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+thead {
+    background-color: #3f87a6;
+    color: #fff;
+}
+
+tbody {
+    background-color: #e4f0f5;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    overflow-y:scroll; 
+    height: 30vh; 
+    display:block; 
+    width: fit-content;
+}
+
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 5px 10px;
+}
+
+th {
+    font-size: xx-large;
+}
+
+td {
+    text-align: center;
+    font-size: xx-large;
+}

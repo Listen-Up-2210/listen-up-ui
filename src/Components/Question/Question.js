@@ -3,16 +3,26 @@ import "./Question.css"
 import Audio from '../Audio/Audio'
 import Choices from "../Choices/Choices";
 import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
+import EndGame from "../EndGame/EndGame";
+import Loading from "../Loading/Loading";
+
 
 const Question = ({ deckID }) => {
 
-  const [turn, setTurn] = useState(0)
-  const [card,setCard] = useState([])
+  const [turn,setTurn] = useState(1)
+  const [card,setCard] = useState({})
+  const [correctAnswers, setCorrectAnswers] = useState(0)
+  const [answers, setAnswers] = useState([])
   const [error, setError] = useState('')
+  const [loading,setLoading] = useState(true)
 
   const advanceTurn = (e) => {
     e.preventDefault()
-    setTimeout(() => setTurn(turn + 1), 3000)
+    setTimeout(() => setTurn(turn + 1), 2000)
+  }
+
+  const addCorrectAnswer = () => {
+    setCorrectAnswers(correctAnswers + 1)
   }
 
   useEffect(() => {
@@ -38,32 +48,36 @@ const Question = ({ deckID }) => {
     })
     .then(res => res.json())
     .then(data => {
-      setCard([data.data.soundCard])
+      setCard(data.data.soundCard)
+      const newCard = data.data.soundCard
+      const answers = [...newCard.wrongAnswers, newCard.correctAnswer]
+      const shuffledAnswers = answers.sort(() => Math.random() - .5)
+      setAnswers(shuffledAnswers)
+      setLoading(false)
     })
     .catch(err => console.log(err))
-  }, [deckID])
-
-  const gameCard = card.map((card, index) => {
-      const answers = [...card.wrongAnswers, card.correctAnswer]
-      const shuffledAnswers = answers.sort(() => Math.random() - .5)
-      return (
-        <div className='card' key={index}>
-          <Audio audioURL={card.link} />
-          <Choices
-            advanceTurn={advanceTurn} 
-            correctAnswer={card.correctAnswer}
-            shuffledAnswers={shuffledAnswers}
-          />
-        </div>
-      )
-    })
-  
+  }, [deckID, turn])
 
   return (
-    <div className="game-card-container">
-      {gameCard ? gameCard : <h2>Loading</h2>}
-      {error && <ErrorDisplay errorCode={'500'} />}
+  <div className="loading-container">
+    {(loading) ? <Loading /> : 
+    <div className="game-container">
+      {turn < 9 ? 
+      <div className='card' key={card.id}>
+        <h2 className='turn-count'>Question: {turn} / 8</h2>
+        <Audio audioURL={card.link} />
+        <Choices
+          advanceTurn={advanceTurn} 
+          correctAnswer={card.correctAnswer}
+          shuffledAnswers={answers}
+          addCorrectAnswer={addCorrectAnswer}
+          />
+      </div> :
+      <EndGame correctAnswers={correctAnswers}/>
+    }
     </div>
+    }
+  </div>
   )
 }
 

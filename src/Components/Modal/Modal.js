@@ -1,5 +1,6 @@
 import React from 'react';
 import {IoCloseSharp} from 'react-icons/io5'
+import Leaderboard from '../Leaderboard/Leaderboard';
 import './Modal.css'
 
 const Modal = ({ show, handleClose, display }) => {
@@ -8,11 +9,7 @@ const Modal = ({ show, handleClose, display }) => {
   return (
     <div className={showHideClassName}>
         {display === 'leader' ?
-            <section className="modal-main">
-                <IoCloseSharp className='close-Btn' onClick={handleClose} />
-                <h2>Leaderboard Content</h2>
-                <p>This is the content of the modal.</p>
-            </section>
+            <Leaderboard handleClose={handleClose} />
                 :
             <section className="modal-main">
                 <IoCloseSharp className='close-Btn' onClick={handleClose} />
