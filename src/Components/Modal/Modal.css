@@ -24,7 +24,8 @@
     position: fixed;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 30rem;
+    width: 40rem;
+    border-radius: 5%;
 }
 
 .modal-main > h2 {
