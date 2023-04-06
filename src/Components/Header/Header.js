@@ -1,9 +1,10 @@
 import React, {useState, useEffect, useContext} from "react";
-import {useLocation} from 'react-router-dom'
+import {useLocation, Link} from 'react-router-dom'
 import "./Header.css"
 import Modal from "../Modal/Modal";
 import instructionIcon from "../../instructions-icon.png"
 import leaderboardIcon from "../../leaderboard-icon.png"
+import logoIcon from "../../icons8-headphones-64.png"
 import { gameContext, setGameContext } from '../App/App';
 
 export default function Header() {
@@ -34,7 +35,12 @@ export default function Header() {
 
   return (
     <header className='header'>
-      <h1 className='title'>Listen Up!</h1>
+      <Link to="/">
+        <section className="title-container">
+          <img src={logoIcon} />
+          <h1 className="title">Listen Up!</h1>
+        </section>
+      </Link>
       <div className='modal-icons-container'>
         <img src={instructionIcon} alt="instructions" className='modal-button' onClick={e => handleShowModal("value")}/>
         <img src={leaderboardIcon} alt="leaderboard" className='modal-button' onClick={e => handleShowModal("leader")}/>
