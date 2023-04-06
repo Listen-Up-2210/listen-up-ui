@@ -2,7 +2,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 10% 10%;
+  margin: 5% 0%;
 }
 
 .text {
@@ -26,6 +26,7 @@ input {
 .submit {
   background-color: #08BDBD;
   border: none;
+  border-radius: 5%;
   height: 6vh;
-  width: 7vw;
+  width: 10vw;
 }
