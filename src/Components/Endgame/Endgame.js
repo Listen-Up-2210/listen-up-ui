@@ -51,7 +51,7 @@ function Endgame({correctAnswers, category, difficulty}) {
      <h2 className="text">You got {correctAnswers} out of 8 questions correct!</h2>
      <h3 className="text">You got a score of {score}</h3>
      <form className="form-container">
-       <input type="text" name="username" placeholder="Enter name here" value={name} onChange={e => setName(e.target.value)} autoComplete="off" required />
+       <input type="text" minLength="2" maxLength="20" name="username" placeholder="Enter name here" value={name} onChange={e => setName(e.target.value)} autoComplete="off" required />
        <NavLink to="/"><button onClick={submitScore} className="submit">Submit</button></NavLink>
      </form>
    </div>
