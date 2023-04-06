@@ -41,7 +41,8 @@ ListenUp is an application where users are given a random sound and have to gues
 
 <br>
 
-## GIF
+## Preview
+![listen-up-preview](https://user-images.githubusercontent.com/22826695/230460559-ddf02aa6-2b1d-46ca-98be-165ea75ef10a.gif)
 
 
 <br>
