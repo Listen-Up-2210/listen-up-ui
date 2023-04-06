@@ -1,13 +1,11 @@
 # [Listen Up](https://listen-up-five.vercel.app/)
 
 ## Overview
----
 ListenUp is an application where users are given a random sound and have to guess what it is. The app offers different categories of sounds such as animals, musical instruments, machines, & miscellaneous. A user then has the option to select a difficulty which determines how many times a sound can be replayed before a guess must be submit. After finishing the game, a score is computed based on the number of correct answers, which is then added to the all-time leaderboard.
 
 <br>
 
 ## Technologies Used
----
 <div>
   <img src="https://img.shields.io/badge/-react-333333?logo=react&style=for-the-badge" width="100" height="30"/>
   <img src="https://img.shields.io/badge/-react%20router-f44250?logo=react%20router&logoColor=white&style=for-the-badge" width="100" height="30"/>
@@ -23,7 +21,6 @@ ListenUp is an application where users are given a random sound and have to gues
 <br>
 
 ## Setup Instructions
----
 1. Fork the Repo from the [Repository](https://github.com/Listen-Up-2210/listen-up-ui)
 2. Clone the repo
    ```sh
@@ -45,13 +42,11 @@ ListenUp is an application where users are given a random sound and have to gues
 <br>
 
 ## GIF
----
 
 
 <br>
 
 ## Front-End Team
----
 * [Angie Wirth](https://github.com/awirth224)
 * [Bob Aiken](https://github.com/BobAiken)
 * [Matt Rowan](https://github.com/Rowan121)
@@ -61,7 +56,6 @@ ListenUp is an application where users are given a random sound and have to gues
 <br>
 
 ## Back-End Team
----
 * [Joe King](https://github.com/this-is-joeking)
 * [Ryan Canton](https://github.com/ryancanton)
 * [Samuel Cox](https://github.com/sambcox)
@@ -69,4 +63,3 @@ ListenUp is an application where users are given a random sound and have to gues
 <br>
 
 ## Future Features
----
