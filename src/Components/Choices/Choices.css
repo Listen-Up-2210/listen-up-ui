@@ -59,8 +59,9 @@
   background-color: rgb(8, 189, 189);
   border-radius: 10px;
   border: none;
-  width: 20%;
+  width: 22%;
   animation: jiggle 2.5s;
+  font-size: x-large;
 }
 
 @keyframes jiggle {
@@ -92,8 +93,9 @@
   background-color: rgb(8, 189, 189);
   border-radius: 10px;
   border: none;
-  width: 20%;
+  width: 22%;
   animation: drop 2.5s;
+  font-size: x-large;
 }
 
 @keyframes drop {
@@ -152,4 +154,18 @@ audio {
     justify-content: center;
     width: 100%;
   }
+
+  .correct {
+    width: 80%;
+    height: 20%;
   }
+  .incorrect {
+    width: 80%;
+    height: 20%;
+  }
+
+  .base:hover {
+  background-color: rgb(8, 189, 189);
+	transform: scale(1);
+  }
+}
