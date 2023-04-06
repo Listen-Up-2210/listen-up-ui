@@ -2,37 +2,58 @@
   background-color: rgb(8, 189, 189);
   border-radius: 10px;
   border: none;
+  width: 20%;
+  box-shadow: 0 9px 0px rgb(8, 110, 110);
+  transition: all .2s;
+  color: white;
   font-size: x-large;
-  height: 100%;
-  width: 22%;
-}
-
-.base[fade='1'] {
+  font-weight: bold;
+  cursor: pointer;
+ }
+ 
+ 
+ .base:active {
+  transform: translate(0, 5px);
+  box-shadow: 0 3px 0px rgb(8, 110, 110);
+  transition: all .2s;
+ }
+ 
+ 
+ .base[fade='1'] {
   animation: fadeIn 1s 1;
-}
-
-.base[fade='2'] {
+ }
+ 
+ 
+ .base[fade='2'] {
   animation: fadeOut 2.5s 1;
-}
-
-@keyframes fadeIn {
+ }
+ 
+ 
+ @keyframes fadeIn {
   0% {
     opacity: 0%;
-    transform: scale(0);
+    transform: scale(0) translate(0, 5px);
     color: rgb(8, 189, 189);
+    box-shadow: 0 2px 0px rgb(8, 110, 110);
   }
   40% {
     opacity: 100%;
-    transform: scale(1);
+    transform: scale(1) translate(0, 5px);
     color: rgb(8, 189, 189);
+  }
+  70% {
+    box-shadow: 0 3px 0px rgb(8, 110, 110);
+    color: white;
+    transform: translate(0, 5px);
   }
   100% {
     opacity: 100%;
-    color: black;
+    box-shadow: 0 9px 0px rgb(8, 110, 110);
   }
-}
-
-@keyframes fadeOut {
+ }
+ 
+ 
+ @keyframes fadeOut {
   0% {
     opacity: 100%;
   }
@@ -44,27 +65,29 @@
     opacity: 0%;
     transform: scale(0);
   }
-}
-
-.fadeOut {
-  background-color: black;
-}
-
-.base:hover {
+ }
+ 
+ 
+ /* .base:hover {
   background-color: rgb(8, 140, 140);
-	transform: scale(1.2);
-}
-
-.correct {
+  transform: scale(1.2);
+ } */
+ 
+ 
+ .correct {
   background-color: rgb(8, 189, 189);
   border-radius: 10px;
   border: none;
-  width: 22%;
+  width: 20%;
+  transition: all .2s;
+  color: white;
+  font-size: 90%;
+  font-weight: bold;
   animation: jiggle 2.5s;
-  font-size: x-large;
-}
-
-@keyframes jiggle {
+ }
+ 
+ 
+ @keyframes jiggle {
   0% {
     background-color: rgb(8, 189, 189);
   }
@@ -87,18 +110,23 @@
     opacity: 0%;
     transform: rotate(360deg) scale(0);
   }
-}
-
-.incorrect {
+ }
+ 
+ 
+ .incorrect {
   background-color: rgb(8, 189, 189);
   border-radius: 10px;
   border: none;
-  width: 22%;
+  width: 20%;
+  transition: all .2s;
+  color: white;
+  font-size: 90%;
+  font-weight: bold;
   animation: drop 2.5s;
-  font-size: x-large;
-}
-
-@keyframes drop {
+ }
+ 
+ 
+ @keyframes drop {
   0% {
     background-color: rgb(8, 189, 189);
   }
@@ -109,47 +137,58 @@
     transform: translate(0vw, -10vh) scale(1.5);
     background-color: rgb(242, 27, 63);
   }
+  60% {
+    transform: translate(0vw, -14vh) scale(1.3) rotate(-180deg);
+    background-color: rgb(242, 27, 63);
+  }
+  70% {
+    transform: translate(0vw, -14vh) scale(1.3) rotate(-180deg);
+    background-color: rgb(242, 27, 63);
+  }
   100% {
     background-color: rgb(242, 27, 63);
-    transform: translate(5vw, 100vh) rotate(180deg);
+    transform: translate(10vw, 100vh) rotate(360deg);
   }
-}
-
-.choices-container {
+ }
+ 
+ 
+ .choices-container {
   display: flex;
   justify-content: space-around;
-  width: 120%;
+  width: 85%;
   height: 10%;
-}
-
-.card {
+ }
+ 
+ 
+ .card {
   height: 100%;
   width: 65%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-
-audio {
+ }
+ 
+ audio {
   padding-bottom: 10%;
   width: 75%;
-}
-
-@media screen and (max-width: 700px) {
+ }
+ 
+ 
+ @media screen and (max-width: 700px) {
   .choices-container {
     display: flex;
     flex-direction: column;
-    height: 50%;
+    height: 70%;
     align-items:  center;
     width: 80%;
   }
-
+ 
   .base {
     width: 80%;
-    height: 20%;
+    height: 15%;
   }
-
+ 
   .card {
     justify-content: center;
     width: 100%;
@@ -159,13 +198,14 @@ audio {
     width: 80%;
     height: 20%;
   }
+
   .incorrect {
     width: 80%;
     height: 20%;
   }
 
-  .base:hover {
-  background-color: rgb(8, 189, 189);
-	transform: scale(1);
+  audio {
+    padding-bottom: 0;
   }
 }
+ 
