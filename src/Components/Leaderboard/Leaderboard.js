@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {IoCloseSharp} from 'react-icons/io5'
+import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 import './Leaderboard.css'
 
 const Leaderboard = ({ handleClose }) => {
     const [leaderboard, setLeaderboard] = useState([]);
+    const [error, setError] = useState('')
 
     useEffect(() => {
         const leaderboardQuery = `
@@ -30,13 +32,14 @@ const Leaderboard = ({ handleClose }) => {
         .then(data => {
             setLeaderboard(data.data.leaderboards)
         })
-        .catch(err => console.log(err))
+        .catch(err => setError(err))
       }, [])
 
       const scoreboard = leaderboard.map((obj, index) => {
         return (
             <tr key={index}>
-                <td>{obj.name}</td>
+                <td>{index + 1}</td>
+                <td style={{"textAlign":"left"}}>{obj.name}</td>
                 <td>{obj.score}</td>
             </tr>
         )
@@ -44,21 +47,21 @@ const Leaderboard = ({ handleClose }) => {
 
     return (
         <section className="modal-main leader">
-            <div className="modal-header">
-                <h2>Leaderboard Content</h2>
-                <IoCloseSharp className='close-Btn' onClick={handleClose} />
-            </div>
-            <table>
+            <IoCloseSharp className='close-Btn' onClick={handleClose} />
+            {error ? <ErrorDisplay errorCode='500' /> :
+              <table className="container">
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Score</th>
-                    </tr>
+                  <tr>
+                    <th style={{"width":"20%"}}>Rank</th>
+                    <th style={{"width":"50%"}}>Name</th>
+                    <th style={{"width":"20%"}}>Score</th>
+                  </tr>
                 </thead>
                 <tbody>
-                    {scoreboard}
+                  {scoreboard}
                 </tbody>
-            </table>
+              </table>
+            }
         </section>
     )
 }

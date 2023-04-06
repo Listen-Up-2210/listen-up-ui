@@ -18,9 +18,9 @@ const Modal = ({ show, handleClose, display }) => {
                     <li>Choose a category of sounds that you want to play with.</li>
                     <li>Choose a difficulty level that you are comfortable with.</li>
                         <ul>
-                            <li>Easy: 3 guesses per sound</li>
-                            <li>Medium: 2 guesses per sound</li>
-                            <li>Hard: 1 guess per sound</li>
+                            <li>Easy: Listen to the sound 3 times</li>
+                            <li>Medium: Listen to the sound 2 times</li>
+                            <li>Hard: Listen to the sound 1 times</li>
                         </ul>
                     <li>After you have guessed all eight sounds, your score will be displayed.</li>
                 </ol>
