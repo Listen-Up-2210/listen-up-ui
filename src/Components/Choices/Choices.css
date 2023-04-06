@@ -2,7 +2,9 @@
   background-color: rgb(8, 189, 189);
   border-radius: 10px;
   border: none;
-  width: 20%;
+  font-size: x-large;
+  height: 100%;
+  width: 22%;
 }
 
 .base[fade='1'] {
@@ -114,7 +116,7 @@
 .choices-container {
   display: flex;
   justify-content: space-around;
-  width: 85%;
+  width: 120%;
   height: 10%;
 }
 
