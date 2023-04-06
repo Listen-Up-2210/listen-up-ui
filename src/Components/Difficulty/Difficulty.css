@@ -11,12 +11,12 @@
 {
 	border: .2em solid;
 	border-radius: 2em;
-	font-size: 3em;
+	font-size: 2em;
 	font-weight: bold;
-	line-height: 13vh;
+	line-height: 10vh;
 	text-align: center;
 	text-decoration: none;
-	width: 11em;
+	width: 10em;
 }
 .difficulty-link:hover
 {
@@ -25,30 +25,30 @@
 }
 .easy
 {
-	border-color: #CD7F32;
-	color: #CD7F32;
+	border-color: #08BDBD;
+	color: #08BDBD;
 }
 .easy:hover
 {
-	box-shadow: 0 0 .8em #CD7F32;
+	box-shadow: 0 0 .8em #08BDBD;
 }
 .medium
 {
-	border-color: #C0C0C0;
-	color: #C0C0C0;
+	border-color: #08BDBD;
+	color: #08BDBD;
 }
 .medium:hover
 {
-	box-shadow: 0 0 .8em #C0C0C0;
+	box-shadow: 0 0 .8em #08BDBD;
 }
 .hard
 {
-	border-color: #FFD700;
-	color: #FFD700;
+	border-color: #08BDBD;
+	color: #08BDBD;
 }
 .hard:hover
 {
-	box-shadow: 0 0 .8em #FFD700;
+	box-shadow: 0 0 .8em #08BDBD;
 }
 @keyframes wiggle
 {
@@ -79,9 +79,9 @@
 	{
 		border: .3em solid;
 		border-radius: 2em;
-		font-size: 2.3em;
+		font-size: 2em;
 		font-weight: bold;
-		line-height: 13vh;
+		line-height: 12vh;
 		text-align: center;
 		text-decoration: none;
 		width: 70vw;

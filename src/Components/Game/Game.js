@@ -44,16 +44,15 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     .then(data => {
       setDeckID(data.data.createDeck.deck.id)
     })
-    .catch(err => {
-      console.log(err)
-      setError(err)})
+    .catch(err => setError(err))
   }, [])
   
   return (
     <div className="question-container">
       {error 
       ? <ErrorDisplay errorCode='500' /> 
-      : deckID ? <Question deckID={deckID}/> : <Loading/>}
+      : 
+      deckID ? <Question deckID={deckID} difficulty={location[2]}/> : <Loading/>}
     </div>
   )
  }

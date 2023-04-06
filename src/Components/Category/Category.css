@@ -1,3 +1,9 @@
+/* #29BF12
+#ABFF4F
+#08BDBD
+#F21B3F
+#FF9914 */
+
 .categories
 {
 	align-items: center;
@@ -10,12 +16,12 @@
 .category-link
 {
 	background-color: white;
-	border: orange .2em solid;
+	border: #08BDBD .2em solid;
 	border-radius: 2em;
-	color: orange;
-	font-size: 3rem;
+	color: #08BDBD;
+	font-size: 2rem;
 	font-weight: bold;
-	line-height: 13vh;
+	line-height: 10vh;
 	text-align: center;
 	text-decoration: none;
 	width: 11em;
@@ -23,7 +29,7 @@
 .category-link:hover
 {
 	animation: wiggle 2s infinite;
-	box-shadow: 0 0 .8em orange;
+	box-shadow: 0 0 .8em #08BDBD;
 	transform: scale(1.2);
 }
 @keyframes wiggle
@@ -55,9 +61,9 @@
 	{
 		border: .3em solid;
 		border-radius: 2em;
-		font-size: 2.3em;
+		font-size: 2.0em;
 		font-weight: bold;
-		line-height: 13vh;
+		line-height: 12vh;
 		text-align: center;
 		text-decoration: none;
 		width: 70vw;

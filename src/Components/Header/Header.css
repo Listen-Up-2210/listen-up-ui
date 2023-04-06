@@ -3,13 +3,19 @@
   background-color: #fff;
   border-bottom: solid black 1px;
   display: flex;
+  height: 14vh;
   justify-content: flex-end;
   position: relative;
   width: 100%;
 }
 
-.title {
+.title-container {
+  display: flex;
+  align-content: center;
+  text-decoration: none;
+  color: black;
   left: 50%;
+  top: 19%;
   margin: 0;
   position:absolute;
   transform: translateX(-50%);
@@ -31,10 +37,17 @@
 }
 
 @media screen and (max-width: 600px) {
+  .header{
+    justify-content: space-between;
+  }
+
+  .title-container {
+    position:relative;
+    transform: scale(0.9);
+  }
+
   .title {
-    font-size:x-large;
-    left: 10px;
-    transform: none;
+    display: none;
   }
 
   .modal-button {

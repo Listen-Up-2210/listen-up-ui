@@ -7,7 +7,7 @@ import Endgame from "../Endgame/Endgame";
 import Loading from "../Loading/Loading";
 import { useLocation } from "react-router";
 
-const Question = ({ deckID }) => {
+const Question = ({ deckID, difficulty }) => {
 
   const [turn,setTurn] = useState(1)
   const [card,setCard] = useState({})
@@ -38,7 +38,7 @@ const Question = ({ deckID }) => {
         }
      }
     `
-
+    if(turn < 9) {
     fetch("https://listen-up-be.herokuapp.com/graphql", {
       method: "POST",
       headers: {
@@ -58,6 +58,7 @@ const Question = ({ deckID }) => {
       setLoading(false)
     })
     .catch(err => setError(err))
+  }
   }, [deckID, turn])
 
   return (
@@ -69,7 +70,7 @@ const Question = ({ deckID }) => {
       {turn < 9 ? 
       <div className='card' key={card.id}>
         <h2 className='turn-count'>Question: {turn} / 8</h2>
-        <Audio audioURL={card.link} />
+        <Audio audioURL={card.link} difficulty={difficulty} turn={turn}/>
         <Choices
           advanceTurn={advanceTurn} 
           correctAnswer={card.correctAnswer}
