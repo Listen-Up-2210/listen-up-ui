@@ -38,7 +38,7 @@ const Question = ({ deckID, difficulty }) => {
         }
      }
     `
-    if(turn < 8) {
+    if(turn < 9) {
     fetch("https://listen-up-be.herokuapp.com/graphql", {
       method: "POST",
       headers: {
