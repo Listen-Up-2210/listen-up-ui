@@ -54,16 +54,16 @@ describe('template spec', () => {
   it('should be taken to a new page after selecting a difficulty', () => {
     cy.get('.easy')
     .click() 
+    cy.url()
+      .should('eq','http://localhost:3000/animals/easy')
+      .should('contain', 'animals')
+      .should('contain', 'easy')
     cy.intercept('POST', 'https://listen-up-be.herokuapp.com/graphql', (req) => {
       aliasQuery(req, '')
       req.reply(
         {fixture:'soundCard.json'}
       )
     })
-    cy.url()
-      .should('eq','http://localhost:3000/animals/easy')
-      .should('contain', 'animals')
-      .should('contain', 'easy')
     cy.get('.turn-count').should('contain', 'Question: 1 / 8')
     cy.get('.choices-container').children()
     .should('have.length', 4)
