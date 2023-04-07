@@ -5,7 +5,7 @@ import Modal from "../Modal/Modal";
 import instructionIcon from "../../instructions-icon.png"
 import leaderboardIcon from "../../leaderboard-icon.png"
 import logoIcon from "../../icons8-headphones-64.png"
-import { gameContext, setGameContext } from '../App/App';
+import { gameContext, setGameContext } from '../Context/Context';
 
 export default function Header() {
     const [showModal, setShowModal] = useState(undefined);
