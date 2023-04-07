@@ -1,4 +1,4 @@
-# [Listen Up](https://listen-up-five.vercel.app/)
+# [Listen Up](https://listenup-game.herokuapp.com/)
 
 ## Overview
 ListenUp is an application where users are given a random sound and have to guess what it is. The app offers different categories of sounds such as animals, musical instruments, machines, & miscellaneous. A user then has the option to select a difficulty which determines how many times a sound can be replayed before a guess must be submit. After finishing the game, a score is computed based on the number of correct answers, which is then added to the all-time leaderboard.
