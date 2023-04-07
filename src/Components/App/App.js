@@ -9,7 +9,7 @@ import ErrorDisplay from '../ErrorDisplay/ErrorDisplay';
 import Context from '../Context/Context';
 
 function App() {
-
+  
   return (
     <Context>
         <div className="App">
