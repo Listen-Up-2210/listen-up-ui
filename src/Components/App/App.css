@@ -1,9 +1,11 @@
 :root {
   --bg-color: #fff;
+  --text-color:black;
 }
 
 [data-theme="dark"] {
   --bg-color: #323232;
+  --text-color: white;
 }
 
 .App {
