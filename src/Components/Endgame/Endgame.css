@@ -1,0 +1,32 @@
+.endgame-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 5% 0%;
+}
+
+.text {
+  font-size: x-large;
+}
+
+.form-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 10% 5%;
+}
+
+input {
+  font-size: large;
+  height: 5vh;
+  margin: 5%;
+  width: 17vw;
+}
+
+.submit {
+  background-color: #08BDBD;
+  border: none;
+  border-radius: 5%;
+  height: 6vh;
+  width: 10vw;
+}

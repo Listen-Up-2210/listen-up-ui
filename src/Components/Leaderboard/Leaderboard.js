@@ -38,7 +38,8 @@ const Leaderboard = ({ handleClose }) => {
       const scoreboard = leaderboard.map((obj, index) => {
         return (
             <tr key={index}>
-                <td>{obj.name}</td>
+                <td>{index + 1}</td>
+                <td style={{"textAlign":"left"}}>{obj.name}</td>
                 <td>{obj.score}</td>
             </tr>
         )
@@ -46,24 +47,21 @@ const Leaderboard = ({ handleClose }) => {
 
     return (
         <section className="modal-main leader">
-            <div className="modal-header">
-                <h2>Leaderboard Content</h2>
-                <IoCloseSharp className='close-Btn' onClick={handleClose} />
-            </div>
+            <IoCloseSharp className='close-Btn' onClick={handleClose} />
             {error ? <ErrorDisplay errorCode='500' /> :
-              <table>
-              <thead>
+              <table className="container">
+                <thead>
                   <tr>
-                      <th>Name</th>
-                      <th>Score</th>
+                    <th style={{"width":"20%"}}>Rank</th>
+                    <th style={{"width":"50%"}}>Name</th>
+                    <th style={{"width":"20%"}}>Score</th>
                   </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                   {scoreboard}
-              </tbody>
-          </table>
+                </tbody>
+              </table>
             }
-
         </section>
     )
 }
