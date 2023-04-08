@@ -24,11 +24,17 @@
 .modal-icons-container {
   align-items: center;
   display: flex;
+  justify-content: end;
 }
 
 .modal-button {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.dark-mode-icon {
+  max-width: 25%;
+  height: auto;
 }
 
 .modal-button:hover {
