@@ -17,7 +17,8 @@
 }
   
 .modal-main {
-    background-color: white;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     left: 50%;
     line-height: 2rem;
     padding: 32px;

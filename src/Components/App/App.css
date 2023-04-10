@@ -1,8 +1,21 @@
+:root {
+  --bg-color: #fff;
+  --text-color:black;
+}
+
+[data-theme="dark"] {
+  --bg-color: #323232;
+  --text-color: white;
+}
+
 .App {
   align-items: center;
+  background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
+
+
 

@@ -1,7 +1,7 @@
 import React, { useState, useContext} from "react";
 import './Endgame.css'
 import { NavLink } from 'react-router-dom'
-import { setGameContext } from "../App/App";
+import { setGameContext } from "../Context/Context";
 
 
 function Endgame({correctAnswers, category, difficulty}) {

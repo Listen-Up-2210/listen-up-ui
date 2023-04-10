@@ -1,5 +1,6 @@
 .loading-container {
   align-items: center;
+  color:var(--text-color);
   display: flex;
   flex-direction: column;
   font-size: xx-large;
