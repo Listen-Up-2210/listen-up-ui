@@ -8,3 +8,19 @@ export const leaderboardQuery = `
             }
           }
         `
+
+
+export const createCardQuery = (deckID) => {
+  return (
+    `
+      query {
+        soundCard(deckId: ${deckID}) {
+          category
+          correctAnswer
+          link
+          wrongAnswers
+        }
+      }
+    `
+  )
+}

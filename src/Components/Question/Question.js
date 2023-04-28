@@ -7,6 +7,7 @@ import Endgame from "../Endgame/Endgame";
 import Loading from "../Loading/Loading";
 import { useLocation } from "react-router";
 import { getData } from "../../GraphQL/ApiCall";
+import { createCardQuery } from "../../GraphQL/Queries";
 
 const Question = ({ deckID, difficulty }) => {
 
@@ -29,16 +30,8 @@ const Question = ({ deckID, difficulty }) => {
   }
 
   useEffect(() => {
-    const cardQuery = `
-    query {
-        soundCard(deckId: ${deckID}) {
-           category
-           correctAnswer
-           link
-           wrongAnswers
-        }
-     }
-    `
+    const cardQuery = createCardQuery(deckID)
+
     if(turn < 9) {
       getData(cardQuery)
       .then(data => {
