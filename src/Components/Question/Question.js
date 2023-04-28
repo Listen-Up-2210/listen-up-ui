@@ -6,6 +6,7 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 import Endgame from "../Endgame/Endgame";
 import Loading from "../Loading/Loading";
 import { useLocation } from "react-router";
+import { getData } from "../../GraphQL/ApiCall";
 
 const Question = ({ deckID, difficulty }) => {
 
@@ -39,26 +40,17 @@ const Question = ({ deckID, difficulty }) => {
      }
     `
     if(turn < 9) {
-    fetch("https://listen-up-be.herokuapp.com/graphql", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        query: cardQuery
+      getData(cardQuery)
+      .then(data => {
+        setCard(data.data.soundCard)
+        const newCard = data.data.soundCard
+        const answers = [...newCard.wrongAnswers, newCard.correctAnswer]
+        const shuffledAnswers = answers.sort(() => Math.random() - .5)
+        setAnswers(shuffledAnswers)
+        setLoading(false)
       })
-    })
-    .then(res => res.json())
-    .then(data => {
-      setCard(data.data.soundCard)
-      const newCard = data.data.soundCard
-      const answers = [...newCard.wrongAnswers, newCard.correctAnswer]
-      const shuffledAnswers = answers.sort(() => Math.random() - .5)
-      setAnswers(shuffledAnswers)
-      setLoading(false)
-    })
-    .catch(err => setError(err))
-  }
+      .catch(err => setError(err))
+    }
   }, [deckID, turn])
 
   return (
