@@ -3,6 +3,7 @@ import './Endgame.css'
 import { NavLink } from 'react-router-dom'
 import { setGameContext } from "../Context/Context";
 import { getData } from "../../GraphQL/ApiCall";
+import { createEndgameQuery } from "../../GraphQL/Mutations";
 
 
 function Endgame({correctAnswers, category, difficulty}) {
@@ -13,24 +14,7 @@ function Endgame({correctAnswers, category, difficulty}) {
 
   const submitScore = () => {
 
-   const scorePost = `
-     mutation createLeaderBoard {
-       createLeaderboard(input: {
-         name: "${name}"
-         score: ${score}
-         category: "${category}"
-         difficulty: "${difficulty}"
-       }) {
-         leaderboard {
-           name
-           score
-           difficulty
-           category
-         }
-         errors
-       }
-     }
-    `
+    const scorePost = createEndgameQuery(name, score, category, difficulty)
 
     getData(scorePost)
      .then(setName(""))
