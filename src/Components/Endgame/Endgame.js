@@ -2,6 +2,7 @@ import React, { useState, useContext} from "react";
 import './Endgame.css'
 import { NavLink } from 'react-router-dom'
 import { setGameContext } from "../Context/Context";
+import { getData } from "../../GraphQL/ApiCall";
 
 
 function Endgame({correctAnswers, category, difficulty}) {
@@ -10,7 +11,7 @@ function Endgame({correctAnswers, category, difficulty}) {
 
  const score = correctAnswers * 100
 
- const submitScore = () => {
+  const submitScore = () => {
 
    const scorePost = `
      mutation createLeaderBoard {
@@ -29,22 +30,13 @@ function Endgame({correctAnswers, category, difficulty}) {
          errors
        }
      }
-     `
+    `
 
-     fetch("https://listen-up-be.herokuapp.com/graphql", {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json"
-       },
-       body: JSON.stringify({
-         query: scorePost
-       })
-     })
-     .then(res => res.json())
+    getData(scorePost)
      .then(setName(""))
      .then(setGameEnded(true))
      .catch(err => console.log(err))
-   }
+  }
 
  return (
    <div className="endgame-container">
