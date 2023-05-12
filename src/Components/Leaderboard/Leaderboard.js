@@ -2,33 +2,15 @@ import React, { useState, useEffect } from "react";
 import {IoCloseSharp} from 'react-icons/io5'
 import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 import './Leaderboard.css'
+import { leaderboardQuery } from "../../GraphQL/Queries";
+import { getData } from "../../GraphQL/ApiCall";
 
 const Leaderboard = ({ handleClose }) => {
     const [leaderboard, setLeaderboard] = useState([]);
     const [error, setError] = useState('')
 
     useEffect(() => {
-        const leaderboardQuery = `
-         query getLeaderboards {
-            leaderboards {
-              score
-              category
-              difficulty
-              name
-            }
-          }
-        `
-    
-        fetch("https://listen-up-be.herokuapp.com/graphql", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            query: leaderboardQuery
-          })
-        })
-        .then(res => res.json())
+        getData(leaderboardQuery)
         .then(data => {
             setLeaderboard(data.data.leaderboards)
         })

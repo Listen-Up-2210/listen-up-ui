@@ -4,6 +4,8 @@ import Question from '../Question/Question'
 import Loading from '../Loading/Loading'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
+import { getData } from "../../GraphQL/ApiCall";
+import { createCategoryQuery } from "../../GraphQL/Mutations";
 
  function Game()  {
   const [deckID,setDeckID] = useState(0)
@@ -18,29 +20,10 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
     if(!categories.includes(location[1]) || !difficulties.includes(location[2])) {
       navigate('/404')
     }
-    const categoryQuery = `
-      mutation createDeck {
-        createDeck(input: {
-          category: "${location[1]}"
-        }) 
-        {
-          deck {
-            id
-          }
-        }
-      }
-    `
-
-    fetch("https://listen-up-be.herokuapp.com/graphql", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        query: categoryQuery
-      })
-    })
-    .then(res => res.json())
+  
+    const categoryQuery = createCategoryQuery(location[1])
+    
+    getData(categoryQuery)
     .then(data => {
       setDeckID(data.data.createDeck.deck.id)
     })

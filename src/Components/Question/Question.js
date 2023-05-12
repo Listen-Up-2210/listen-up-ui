@@ -6,6 +6,8 @@ import ErrorDisplay from "../ErrorDisplay/ErrorDisplay"
 import Endgame from "../Endgame/Endgame";
 import Loading from "../Loading/Loading";
 import { useLocation } from "react-router";
+import { getData } from "../../GraphQL/ApiCall";
+import { createCardQuery } from "../../GraphQL/Queries";
 
 const Question = ({ deckID, difficulty }) => {
 
@@ -28,37 +30,20 @@ const Question = ({ deckID, difficulty }) => {
   }
 
   useEffect(() => {
-    const cardQuery = `
-    query {
-        soundCard(deckId: ${deckID}) {
-           category
-           correctAnswer
-           link
-           wrongAnswers
-        }
-     }
-    `
+    const cardQuery = createCardQuery(deckID)
+
     if(turn < 9) {
-    fetch("https://listen-up-be.herokuapp.com/graphql", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        query: cardQuery
+      getData(cardQuery)
+      .then(data => {
+        setCard(data.data.soundCard)
+        const newCard = data.data.soundCard
+        const answers = [...newCard.wrongAnswers, newCard.correctAnswer]
+        const shuffledAnswers = answers.sort(() => Math.random() - .5)
+        setAnswers(shuffledAnswers)
+        setLoading(false)
       })
-    })
-    .then(res => res.json())
-    .then(data => {
-      setCard(data.data.soundCard)
-      const newCard = data.data.soundCard
-      const answers = [...newCard.wrongAnswers, newCard.correctAnswer]
-      const shuffledAnswers = answers.sort(() => Math.random() - .5)
-      setAnswers(shuffledAnswers)
-      setLoading(false)
-    })
-    .catch(err => setError(err))
-  }
+      .catch(err => setError(err))
+    }
   }, [deckID, turn])
 
   return (
