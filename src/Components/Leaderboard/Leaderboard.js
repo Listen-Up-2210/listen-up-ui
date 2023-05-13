@@ -34,9 +34,9 @@ const Leaderboard = ({ handleClose }) => {
               <table className="container">
                 <thead>
                   <tr>
-                    <th style={{"width":"20%"}}>Rank</th>
-                    <th style={{"width":"50%"}}>Name</th>
-                    <th style={{"width":"20%"}}>Score</th>
+                    <th style={{"width":"30%"}}>Rank</th>
+                    <th style={{"width":"60%", "textAlign": "left"}}>Name</th>
+                    <th style={{"width":"10%"}}>Score</th>
                   </tr>
                 </thead>
                 <tbody>
