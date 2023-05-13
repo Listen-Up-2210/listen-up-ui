@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Game.css";
 import Question from "../Question/Question";
 import Loading from "../Loading/Loading";
@@ -38,7 +38,7 @@ function Game() {
       {error ? (
         <ErrorDisplay errorCode="500" />
       ) : deckID ? (
-        <Question deckID={deckID} difficulty={location[2]} />
+        <Question deckID={deckID} />
       ) : (
         <Loading />
       )}
