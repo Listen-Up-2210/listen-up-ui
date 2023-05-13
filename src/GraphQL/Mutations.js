@@ -1,9 +1,9 @@
-export const createCategoryQuery = (location) => {
-    return (
-      `
+export const createCategoryQuery = (location, difficulty) => {
+  return `
         mutation createDeck {
             createDeck(input: {
-                category: "${location}"
+                category: "${location}",
+                difficulty: "${difficulty}"
             }) 
             {
                 deck {
@@ -11,13 +11,11 @@ export const createCategoryQuery = (location) => {
                 }
             }
         }
-      `
-    )
-}
+      `;
+};
 
 export const createEndgameQuery = (name, score, category, difficulty) => {
-    return (
-      `
+  return `
         mutation createLeaderBoard {
             createLeaderboard(input: {
                 name: "${name}"
@@ -35,6 +33,5 @@ export const createEndgameQuery = (name, score, category, difficulty) => {
                 errors
             }
         }
-      `
-    )
-}
+      `;
+};
