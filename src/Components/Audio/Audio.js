@@ -1,39 +1,9 @@
-import React, {useState, useEffect} from "react";
-import './Audio.css'
+import React from "react";
+import "./Audio.css";
 import ReactAudioPlayer from "react-audio-player";
 
-const Audio = ({audioURL, difficulty, turn}) => {
+const Audio = ({ audioURL }) => {
+  return <ReactAudioPlayer src={audioURL} controls />;
+};
 
-  const[audioClicks, setAudioClicks] = useState(0)
-  const[disable,setDisable] = useState("show")
-
-  useEffect(()=>{
-    setDisable("show")
-    if(difficulty === "easy"){
-      setAudioClicks(3)
-    } else if (difficulty === "medium") {
-      setAudioClicks(2)
-    } else {
-      setAudioClicks(1)
-    }
-  },[turn])
-
-  const handleAudioClick = () => {
-    if (audioClicks > 1){
-      setAudioClicks(audioClicks-1)
-    } else {
-      setDisable("hide")
-    }
-  }
-
-  return (
-      <ReactAudioPlayer
-        src={audioURL}
-        controls
-        onPlay={()=> handleAudioClick()}
-        className={disable}
-      />
-  )
-}
-
-export default Audio
+export default Audio;
